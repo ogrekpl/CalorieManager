@@ -15,10 +15,9 @@ namespace CalorieManager
 		public Form1()
 		{
 			InitializeComponent();
-			Console.Write("Hej Seba");
 		}
-		f
-        private void Form1_Load(object sender, EventArgs e)
+
+		private void Form1_Load(object sender, EventArgs e)
         {
 
         }
