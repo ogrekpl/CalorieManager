@@ -9,20 +9,34 @@ namespace CalorieManager.Forms
     class DailyMeals
     {
         private uint id;
-        private List<Meal> meal;
+        private List<Meal> meals;
         private DateTime date;
-
         public uint Id => id;
-
-        public List<Meal> Meal => meal;
-
+        public List<Meal> Meals => meals;
         public DateTime Date => date;
 
-        public DailyMeals(uint id, List<Meal> meal, DateTime date)
+        /// <summary>
+        /// Constructor of class DailyMeals
+        /// </summary>
+        /// <param name="id">Id</param>
+        /// <param name="meals">Meals</param>
+        /// <param name="date">Date</param>
+        public DailyMeals(uint id, List<Meal> meals, DateTime date)
         {
             this.id = id;
-            this.meal = meal;
+            this.meals = meals;
             this.date = date;
+        }
+
+        /// <summary>
+        /// Constructor without Id of class DailyMeals
+        /// </summary>
+        /// <param name="meals">Meals</param>
+        /// <param name="date">Date</param>
+        public DailyMeals(List<Meal> meals, DateTime date)
+        {
+	        this.meals = meals;
+	        this.date = date;
         }
 
     }

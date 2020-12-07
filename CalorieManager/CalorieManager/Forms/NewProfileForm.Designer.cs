@@ -128,6 +128,7 @@
 			this.buttonCreateProfile.TabIndex = 7;
 			this.buttonCreateProfile.Text = "Create";
 			this.buttonCreateProfile.UseVisualStyleBackColor = true;
+			this.buttonCreateProfile.Click += new System.EventHandler(this.buttonCreateProfile_Click);
 			// 
 			// inputName
 			// 

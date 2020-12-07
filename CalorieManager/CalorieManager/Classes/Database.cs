@@ -24,7 +24,6 @@ namespace CalorieManager
         /// <param name="uid"></param>
         /// <param name="password"></param>
         /// <param name="connection"></param>
-        /// 
         public Database()
         {
             server = "localhost";

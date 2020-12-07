@@ -17,28 +17,22 @@ namespace CalorieManager.Forms
         private int hydrocarbon;
 
         public uint Id => id;
-
         public string Name => name;
-
         public string Description => description;
-
         public int Protein => protein;
-
         public int Fat => fat;
-
         public int Hydrocarbon => hydrocarbon;
 
         /// <summary>
         /// Constructor of class Meal
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        /// <param name="description"></param>
-        /// <param name="kcal"></param>
-        /// <param name="protein"></param>
-        /// <param name="fat"></param>
-        /// <param name="hydrocarbon"></param>
-
+        /// <param name="id">Id</param>
+        /// <param name="name">Name</param>
+        /// <param name="description">Description</param>
+        /// <param name="kcal">Calories</param>
+        /// <param name="protein">Proteins</param>
+        /// <param name="fat">Fats</param>
+        /// <param name="hydrocarbon">Hydrocarbons</param>
         public Meal(uint id, string name, string description, int kcal, int protein, int fat, int hydrocarbon)
         {
             this.id = id;
@@ -48,6 +42,25 @@ namespace CalorieManager.Forms
             this.protein = protein;
             this.fat = fat;
             this.hydrocarbon = hydrocarbon;
+        }
+
+        /// <summary>
+        /// Constructor without Id of class Meal
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <param name="description">Description</param>
+        /// <param name="kcal">Calories</param>
+        /// <param name="protein">Proteins</param>
+        /// <param name="fat">Fats</param>
+        /// <param name="hydrocarbon">Hydrocarbons</param>
+        public Meal(string name, string description, int kcal, int protein, int fat, int hydrocarbon)
+        {
+	        this.name = name;
+	        this.description = description;
+	        this.kcal = kcal;
+	        this.protein = protein;
+	        this.fat = fat;
+	        this.hydrocarbon = hydrocarbon;
         }
     }
 }

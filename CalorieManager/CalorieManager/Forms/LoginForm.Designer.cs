@@ -62,6 +62,7 @@
 			this.buttonNewProfile.TabIndex = 2;
 			this.buttonNewProfile.Text = "New profile";
 			this.buttonNewProfile.UseVisualStyleBackColor = true;
+			this.buttonNewProfile.Click += new System.EventHandler(this.buttonNewProfile_Click);
 			// 
 			// comboBoxProfiles
 			// 

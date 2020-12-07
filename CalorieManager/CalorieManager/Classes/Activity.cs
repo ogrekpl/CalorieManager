@@ -31,5 +31,18 @@ namespace CalorieManager
 			this.description = description;
 			this.calories = calories;
 		}
+
+		/// <summary>
+		/// Constructor without Id of Activity class
+		/// </summary>
+		/// <param name="name">Name</param>
+		/// <param name="description">Description</param>
+		/// <param name="calories">Calories</param>
+		public Activity(string name, string description, int calories)
+		{
+			this.name = name;
+			this.description = description;
+			this.calories = calories;
+		}
 	}
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CalorieManager
 {
-	class User
+	public class User
 	{
 		private uint id;
 		private string name;
@@ -25,7 +25,7 @@ namespace CalorieManager
 
 
 		/// <summary>
-		/// Contructor of class User
+		/// Constructor of class User
 		/// </summary>
 		/// <param name="id">Id</param>
 		/// <param name="name">Name</param>
@@ -45,5 +45,23 @@ namespace CalorieManager
 			this.weightHistory = weightHistory;
 		}
 
+		/// <summary>
+		/// Constructor without Id of class User
+		/// </summary>
+		/// <param name="name"></param>
+		/// <param name="age"></param>
+		/// <param name="height"></param>
+		/// <param name="caloriesGoal"></param>
+		/// <param name="weightGoal"></param>
+		/// <param name="weightHistory"></param>
+		public User(string name, int age, int height, int caloriesGoal, double weightGoal, Dictionary<DateTime, double> weightHistory)
+		{
+			this.name = name;
+			this.age = age;
+			this.height = height;
+			this.caloriesGoal = caloriesGoal;
+			this.weightGoal = weightGoal;
+			this.weightHistory = weightHistory;
+		}
 	}
 }
