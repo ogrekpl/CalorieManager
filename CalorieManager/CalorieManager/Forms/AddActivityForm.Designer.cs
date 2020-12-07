@@ -106,9 +106,9 @@
 			this.labelNewActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.labelNewActivity.Location = new System.Drawing.Point(199, 17);
 			this.labelNewActivity.Name = "labelNewActivity";
-			this.labelNewActivity.Size = new System.Drawing.Size(142, 31);
+			this.labelNewActivity.Size = new System.Drawing.Size(176, 31);
 			this.labelNewActivity.TabIndex = 15;
-			this.labelNewActivity.Text = "New Meal";
+			this.labelNewActivity.Text = "New Activity";
 			// 
 			// AddActivityForm
 			// 
