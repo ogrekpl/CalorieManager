@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CalorieManager
+namespace CalorieManager.Forms
 {
-	public partial class Form1 : Form
+	public partial class AddMealForm : Form
 	{
-		public Form1()
+		public AddMealForm()
 		{
 			InitializeComponent();
 		}
