@@ -88,6 +88,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Activity.cs" />
     <Compile Include="Forms\AddActivityForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +124,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Classes\User.cs" />
     <EmbeddedResource Include="Forms\AddActivityForm.resx">
       <DependentUpon>AddActivityForm.cs</DependentUpon>
     </EmbeddedResource>
