@@ -66,5 +66,6 @@
     <Build Include="dbo\Tables\Users.sql" />
     <Build Include="dbo\Tables\WeightHistory.sql" />
     <Build Include="dbo\Tables\DailyMeals.sql" />
+    <Build Include="dbo\Tables\Activities.sql" />
   </ItemGroup>
 </Project>
