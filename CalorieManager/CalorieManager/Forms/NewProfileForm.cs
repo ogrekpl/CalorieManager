@@ -23,7 +23,6 @@ namespace CalorieManager
 		/// </summary>
 		private void buttonCreateProfile_Click(object sender, EventArgs e)
 		{
-			Database db = new Database();
 
 			if (String.IsNullOrEmpty(inputName.Text))
 			{
@@ -33,7 +32,8 @@ namespace CalorieManager
 			}
 			else
 			{
-				//funkcja która dodaje usera
+				Database db = new Database();
+				db.UserDataAdd(CreateUserFromForm());
 
 			}
 		}
@@ -44,9 +44,9 @@ namespace CalorieManager
 		/// <returns>New object of class User</returns>
 		private User CreateUserFromForm()
 		{
-			return new User(inputName.Text, Convert.ToInt32(inputAge.Text), Convert.ToInt32(inputHeight), 
-				Convert.ToInt32(inputKcalGoal), Convert.ToDouble(inputWeightGoal), 
-				new Dictionary<DateTime, double>(){{DateTime.Today, Convert.ToDouble(inputWeight)}});
+			return new User(inputName.Text, Convert.ToInt32(inputAge.Text), Convert.ToInt32(inputHeight.Value), 
+				Convert.ToInt32(inputKcalGoal.Value), Convert.ToDouble(inputWeightGoal.Value), 
+				new Dictionary<DateTime, double>(){{DateTime.Today, Convert.ToDouble(inputWeight.Value)}});
 		}
 	}
 }

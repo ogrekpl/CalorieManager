@@ -22,5 +22,10 @@ namespace CalorieManager
 			Form newProfileForm = new NewProfileForm();
 			newProfileForm.ShowDialog();
 		}
+
+		private void buttonSelect_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
