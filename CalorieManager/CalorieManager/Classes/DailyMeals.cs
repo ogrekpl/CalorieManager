@@ -18,6 +18,12 @@ namespace CalorieManager.Forms
 
         public DateTime Date => date;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="meal"></param>
+        /// <param name="date"></param>
         public DailyMeals(uint id, List<Meal> meal, DateTime date)
         {
             this.id = id;
