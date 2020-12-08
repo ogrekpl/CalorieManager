@@ -46,7 +46,7 @@ namespace CalorieManager
 		{
 			return new User(inputName.Text, Convert.ToInt32(inputAge.Text), Convert.ToInt32(inputHeight.Value), 
 				Convert.ToInt32(inputKcalGoal.Value), Convert.ToDouble(inputWeightGoal.Value), 
-				new Dictionary<DateTime, double>(){{DateTime.Today, Convert.ToDouble(inputWeight.Value)}});
+				new Dictionary<DateTime, double>(){{DateTime.Now, Convert.ToDouble(inputWeight.Value)}});
 		}
 	}
 }

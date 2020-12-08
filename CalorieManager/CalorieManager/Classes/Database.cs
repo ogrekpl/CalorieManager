@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,14 +28,24 @@ namespace CalorieManager
         /// <param name="connection"></param>
         public Database()
         {
-            server = "localhost";
+            server = @"ADRIAN\ADIX155";
             databaseName = "CMDatabase";
-            uid = "root";
-            password = "";
+            uid = @"test";
+            password = "CMDatabase";
 
             string connectionString = "SERVER=" + server + ";DATABASE=" + databaseName + ";UID=" + uid + ";PASSWORD=" + password;
 
-            connection = new SqlConnection(connectionString);
+            connection = new SqlConnection(
+                new SqlConnectionStringBuilder()
+                {
+                    DataSource = server,
+                    InitialCatalog = databaseName,
+                    UserID = uid,
+                    Password = password
+                }.ConnectionString
+            );
+
+
         }
 
         public void OpenConnection()
@@ -109,15 +120,22 @@ namespace CalorieManager
             cmd.Parameters["@WEIGHTGOAL"].Value = user.WeightGoal;
             cmd2.Parameters["@WEIGHT"].Value = user.WeightHistory.Values.First();
             cmd2.Parameters["@DATE"].Value = user.WeightHistory.Keys.First();
+            
 
             cmd.ExecuteNonQuery();
 
             string query3 = "SELECT Id FROM Users ORDER BY Id DESC";
             SqlCommand cmd3 = new SqlCommand(query3, connection);
             SqlDataReader reader = cmd3.ExecuteReader();
-            int id = reader.GetInt32(0);
+            int a = 1;
+            int id = new int();
+            while (reader.Read() && a == 1)
+            {
+                id = reader.GetInt32(0);
+                a++;
+            }
+            reader.Close();
             cmd2.Parameters["@USERID"].Value = id;
-
             cmd2.ExecuteNonQuery();
 
             connection.Close();
