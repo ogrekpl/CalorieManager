@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CalorieManager
+namespace CalorieManager.Classes
 {
 	public class User
 	{
@@ -62,6 +62,11 @@ namespace CalorieManager
 			this.caloriesGoal = caloriesGoal;
 			this.weightGoal = weightGoal;
 			this.weightHistory = weightHistory;
+		}
+
+		public override string ToString()
+		{
+			return name;
 		}
 	}
 }

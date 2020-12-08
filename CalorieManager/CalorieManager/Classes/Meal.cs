@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CalorieManager.Forms
+namespace CalorieManager.Classes
 {
     class Meal
     {
@@ -61,6 +61,11 @@ namespace CalorieManager.Forms
 	        this.protein = protein;
 	        this.fat = fat;
 	        this.hydrocarbon = hydrocarbon;
+        }
+
+        public override string ToString()
+        {
+	        return name;
         }
     }
 }

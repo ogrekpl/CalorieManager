@@ -16,5 +16,28 @@ namespace CalorieManager.Forms
 		{
 			InitializeComponent();
 		}
+
+		/// <summary>
+		/// Event when clicked on button "New"
+		/// </summary>
+		private void buttonNew_Click(object sender, EventArgs e)
+		{
+			if (inputName.Text != string.Empty)
+			{
+				Database db = new Database();
+	
+				Meal meal = new Meal(inputName.Text, inputDescription.Text, (int)inputCalories.Value, (int)inputProteins.Value, 
+					(int)inputFats.Value, (int)inputCarbohydrates.Value);
+				//metoda dodająca Meal do bazy danych
+
+				this.Close();
+			}
+			else
+			{
+				const string message = "Enter name of activity!";
+				const string caption = "Error";
+				MessageBox.Show(message, caption);
+			}
+		}
 	}
 }

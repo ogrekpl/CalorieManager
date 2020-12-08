@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CalorieManager.Forms;
 
-namespace CalorieManager.Forms
+namespace CalorieManager.Classes
 {
     class DailyMeals
     {
@@ -39,5 +40,9 @@ namespace CalorieManager.Forms
 	        this.date = date;
         }
 
+        public override string ToString()
+        {
+	        return id + "-" + date.ToShortDateString();
+        }
     }
 }
