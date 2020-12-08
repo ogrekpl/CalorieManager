@@ -48,6 +48,7 @@
 			this.buttonNew.TabIndex = 28;
 			this.buttonNew.Text = "New";
 			this.buttonNew.UseVisualStyleBackColor = true;
+			this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
 			// 
 			// inputDescription
 			// 

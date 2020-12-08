@@ -24,7 +24,7 @@ namespace CalorieManager
 		private void buttonCreateProfile_Click(object sender, EventArgs e)
 		{
 
-			if (String.IsNullOrEmpty(inputName.Text))
+			if (inputName.Text == string.Empty)
 			{
 				const string message = "Enter name!";
 				const string caption = "Error";
@@ -34,7 +34,7 @@ namespace CalorieManager
 			{
 				Database db = new Database();
 				db.UserDataAdd(CreateUserFromForm());
-
+				this.Close();
 			}
 		}
 

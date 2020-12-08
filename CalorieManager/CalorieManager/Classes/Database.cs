@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace CalorieManager
+namespace CalorieManager.Classes
 {
     class Database
     {
@@ -122,7 +122,7 @@ namespace CalorieManager
 
             connection.Close();
         }
-
+        
 
     }
 }

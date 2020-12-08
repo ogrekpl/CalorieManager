@@ -71,6 +71,7 @@
 			this.comboBoxProfiles.Location = new System.Drawing.Point(136, 128);
 			this.comboBoxProfiles.Name = "comboBoxProfiles";
 			this.comboBoxProfiles.Size = new System.Drawing.Size(121, 21);
+			this.comboBoxProfiles.Sorted = true;
 			this.comboBoxProfiles.TabIndex = 3;
 			// 
 			// LoginForm
