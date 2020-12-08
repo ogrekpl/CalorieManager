@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CalorieManager.Classes;
 using CalorieManager.Forms;
 
 namespace CalorieManager
@@ -34,11 +35,11 @@ namespace CalorieManager
 		/// </summary>
 		private void LoadUsers()
 		{
-			comboBoxProfiles.Items.Add(new User("test", 12, 12, 12, 44,
-				new Dictionary<DateTime, double>() {{new DateTime(2020, 12, 08), 90}}));
+			//comboBoxProfiles.Items.Add(new User("test", 12, 12, 12, 44,
+			//	new Dictionary<DateTime, double>() {{new DateTime(2020, 12, 08), 90}}));
 
-			//ładuje z bazy danych userów
-			List<User> usersList = new List<User>();
+            Database db = new Database();
+            List<User> usersList = db.UsersDataCollection();
 
 			foreach (User user in usersList)
 			{

@@ -28,34 +28,14 @@ namespace CalorieManager.Classes
         /// <param name="connection"></param>
         public Database()
         {
-            server = @"ADRIAN\ADIX155";
+            server = System.Windows.Forms.SystemInformation.ComputerName + @"\ADIX155";
             databaseName = "CMDatabase";
             uid = @"test";
             password = "CMDatabase";
 
-            string connectionString = "SERVER=" + server + ";DATABASE=" + databaseName + ";UID=" + uid + ";PASSWORD=" + password;
+            string connectionString = "SERVER=" + server + ";DATABASE=" + databaseName + ";UID=" + uid + ";PASSWORD=" + password + ";MultipleActiveResultSets=true";
 
-            connection = new SqlConnection(
-                new SqlConnectionStringBuilder()
-                {
-                    DataSource = server,
-                    InitialCatalog = databaseName,
-                    UserID = uid,
-                    Password = password
-                }.ConnectionString
-            );
-
-
-        }
-
-        public void OpenConnection()
-        {
-            connection.Open();
-        }
-
-        public void CloseConnection()
-        {
-            connection.Close();
+            connection = new SqlConnection(connectionString);
         }
 
         public List<User> UsersDataCollection()
@@ -76,16 +56,17 @@ namespace CalorieManager.Classes
                 Dictionary<DateTime, double> weightHistory = new Dictionary<DateTime, double>();
                 while (reader2.Read())
                 {
-                    weightHistory.Add(reader2.GetDateTime(2), reader2.GetDouble(1));
+                    DateTime data = reader2.GetDateTime(2);
+                    double weight = Convert.ToDouble(reader2.GetDecimal(1));
+                    weightHistory.Add(data, weight);
                 }
-
                 User newUser = new User(
-                    (uint)reader.GetInt32(0),
+                    Convert.ToUInt32(reader.GetInt32(0)),
                     reader.GetString(1),
                     reader.GetInt32(2),
                     reader.GetInt32(3),
                     reader.GetInt32(4),
-                    reader.GetDouble(5),
+                    Convert.ToDouble(reader.GetDecimal(5)),
                     weightHistory);
 
                 users.Add(newUser);
