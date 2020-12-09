@@ -19,6 +19,7 @@ namespace CalorieManager.Classes
         public uint Id => id;
         public string Name => name;
         public string Description => description;
+        public int Kcal => kcal;
         public int Protein => protein;
         public int Fat => fat;
         public int Hydrocarbon => hydrocarbon;

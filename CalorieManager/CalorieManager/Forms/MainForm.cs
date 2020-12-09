@@ -18,5 +18,18 @@ namespace CalorieManager.Forms
 			InitializeComponent();
 		}
 
-	}
+        private void buttonAddActivity_Click(object sender, EventArgs e)
+        {
+			Form addActivityForm = new AddActivityForm();
+            this.Hide();
+			addActivityForm.Show();
+		}
+
+        private void buttonAddMeal_Click(object sender, EventArgs e)
+        {
+			Form addMealForm = new AddMealForm();
+            this.Hide();
+            addMealForm.Show();
+		}
+    }
 }

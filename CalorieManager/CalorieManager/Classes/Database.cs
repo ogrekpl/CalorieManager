@@ -121,6 +121,52 @@ namespace CalorieManager.Classes
 
             connection.Close();
         }
+
+        public void ActivityDataAdd(Activity activity)
+        {
+            connection.Open();
+            string query =
+                "INSERT INTO Activities(Name, Description, Calories) VALUES (@NAME, @DESCRIPTION, @CALORIES)";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.Add("@NAME", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@DESCRIPTION", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@CALORIES", SqlDbType.Int);
+
+            cmd.Parameters["@NAME"].Value = activity.Name;
+            cmd.Parameters["@DESCRIPTION"].Value = activity.Description;
+            cmd.Parameters["@CALORIES"].Value = activity.Calories;
+
+            cmd.ExecuteNonQuery();
+
+            connection.Close();
+        }
+
+        public void MealDataAdd(Meal meal)
+        {
+            connection.Open();
+            string query =
+                "INSERT INTO Meal(Name, Description, Kcal, Protein, Fat, Hydrocarbon) VALUES (@NAME, @DESCRIPTION, @CALORIES, @PROTEIN, @FAT, @HYDROCARBON)";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.Add("@NAME", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@DESCRIPTION", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@CALORIES", SqlDbType.Int);
+            cmd.Parameters.Add("@PROTEIN", SqlDbType.Int);
+            cmd.Parameters.Add("@FAT", SqlDbType.Int);
+            cmd.Parameters.Add("@HYDROCARBON", SqlDbType.Int);
+
+            cmd.Parameters["@NAME"].Value = meal.Name;
+            cmd.Parameters["@DESCRIPTION"].Value = meal.Description;
+            cmd.Parameters["@CALORIES"].Value = meal.Kcal;
+            cmd.Parameters["@PROTEIN"].Value = meal.Protein;
+            cmd.Parameters["@FAT"].Value = meal.Fat;
+            cmd.Parameters["@HYDROCARBON"].Value = meal.Hydrocarbon;
+
+            cmd.ExecuteNonQuery();
+
+            connection.Close();
+        }
         
 
     }

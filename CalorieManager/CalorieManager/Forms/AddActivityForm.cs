@@ -27,7 +27,7 @@ namespace CalorieManager.Forms
 			{
 				Database db = new Database();
 				Activity activity = new Activity(inputName.Text, inputDescription.Text, (int)inputCalories.Value);
-				//metoda dodajaca activity do bazy danych
+				db.ActivityDataAdd(activity);
 				this.Close();
 			}
 			else

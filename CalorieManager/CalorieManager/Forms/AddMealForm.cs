@@ -29,9 +29,9 @@ namespace CalorieManager.Forms
 	
 				Meal meal = new Meal(inputName.Text, inputDescription.Text, (int)inputCalories.Value, (int)inputProteins.Value, 
 					(int)inputFats.Value, (int)inputCarbohydrates.Value);
-				//metoda dodająca Meal do bazy danych
 
-				this.Close();
+				db.MealDataAdd(meal);
+                this.Close();
 			}
 			else
 			{
@@ -40,5 +40,10 @@ namespace CalorieManager.Forms
 				MessageBox.Show(message, caption);
 			}
 		}
-	}
+
+        private void AddMealForm_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
