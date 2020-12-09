@@ -36,6 +36,9 @@ namespace CalorieManager
 				Database db = new Database();
 				db.UserDataAdd(CreateUserFromForm());
 				this.Close();
+                const string message = "New user was added to database";
+                const string caption = "Success";
+                MessageBox.Show(message, caption);
 			}
 		}
 

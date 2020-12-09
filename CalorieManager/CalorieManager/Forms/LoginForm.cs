@@ -75,6 +75,6 @@ namespace CalorieManager
 		private void OnNewProfileFormClosed(object sender, EventArgs e)
 		{
 			LoadUsers();
-		}
+        }
 	}
 }
