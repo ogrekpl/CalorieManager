@@ -49,6 +49,7 @@ namespace CalorieManager.Forms
             this.newKcalGoal.Name = "newKcalGoal";
             this.newKcalGoal.Size = new System.Drawing.Size(109, 20);
             this.newKcalGoal.TabIndex = 1;
+            this.newKcalGoal.TextChanged += new System.EventHandler(this.newKcalGoal_TextChanged);
             // 
             // newKcalGoalValue
             // 

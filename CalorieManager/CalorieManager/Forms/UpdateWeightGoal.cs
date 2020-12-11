@@ -18,11 +18,12 @@ namespace CalorieManager.Forms
         {
             this.user = user;
             InitializeComponent();
+            newWeightGoal.Text = Convert.ToString(user.WeightGoal);
         }
 
         private void newWeightGoalValue_Click(object sender, EventArgs e)
         {
-            user.WeightGoal = Convert.ToDouble(newKcalGoal.Text);
+            user.WeightGoal = Convert.ToDouble(newWeightGoal.Text);
             Database db = new Database();
             db.UserDataUpdate(user);
             MessageBox.Show("Operacja zakończona sukcesem");

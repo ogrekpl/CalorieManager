@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Activity.cs" />
+    <Compile Include="Classes\DailyActivities.cs" />
     <Compile Include="Forms\AddActivityForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -30,7 +30,7 @@ namespace CalorieManager.Forms
         private void InitializeComponent()
         {
             this.newWeightGoalValue = new System.Windows.Forms.Button();
-            this.newKcalGoal = new System.Windows.Forms.TextBox();
+            this.newWeightGoal = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -44,12 +44,12 @@ namespace CalorieManager.Forms
             this.newWeightGoalValue.UseVisualStyleBackColor = true;
             this.newWeightGoalValue.Click += new System.EventHandler(this.newWeightGoalValue_Click);
             // 
-            // newKcalGoal
+            // newWeightGoal
             // 
-            this.newKcalGoal.Location = new System.Drawing.Point(66, 92);
-            this.newKcalGoal.Name = "newKcalGoal";
-            this.newKcalGoal.Size = new System.Drawing.Size(109, 20);
-            this.newKcalGoal.TabIndex = 4;
+            this.newWeightGoal.Location = new System.Drawing.Point(66, 92);
+            this.newWeightGoal.Name = "newWeightGoal";
+            this.newWeightGoal.Size = new System.Drawing.Size(109, 20);
+            this.newWeightGoal.TabIndex = 4;
             // 
             // label1
             // 
@@ -66,7 +66,7 @@ namespace CalorieManager.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(238, 216);
             this.Controls.Add(this.newWeightGoalValue);
-            this.Controls.Add(this.newKcalGoal);
+            this.Controls.Add(this.newWeightGoal);
             this.Controls.Add(this.label1);
             this.Name = "UpdateWeightGoal";
             this.Text = "UpdateWeightGoal";
@@ -78,7 +78,7 @@ namespace CalorieManager.Forms
         #endregion
 
         private System.Windows.Forms.Button newWeightGoalValue;
-        private System.Windows.Forms.TextBox newKcalGoal;
+        private System.Windows.Forms.TextBox newWeightGoal;
         private System.Windows.Forms.Label label1;
     }
 }
