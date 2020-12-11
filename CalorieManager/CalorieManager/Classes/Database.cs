@@ -122,6 +122,26 @@ namespace CalorieManager.Classes
             connection.Close();
         }
 
+        public void UserDataUpdate(User user)
+        {
+            connection.Open();
+
+            string query = "UPDATE Users SET KcalGoal = @KCALGOAL, WeightGoal = @WEIGHTGOAL WHERE Id = @ID";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.Add("@KCALGOAL", SqlDbType.Int);
+            cmd.Parameters.Add("@WEIGHTGOAL", SqlDbType.Decimal);
+            cmd.Parameters.Add("@ID", SqlDbType.Int);
+
+            cmd.Parameters["@KCALGOAL"].Value = user.CaloriesGoal;
+            cmd.Parameters["@WEIGHTGOAL"].Value = user.WeightGoal;
+            cmd.Parameters["@ID"].Value = user.Id;
+
+            cmd.ExecuteNonQuery();
+
+            connection.Close();
+        }
+
         public void ActivityDataAdd(Activity activity)
         {
             connection.Open();

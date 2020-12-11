@@ -19,8 +19,18 @@ namespace CalorieManager.Classes
 		public string Name => name;
 		public int Age => age;
 		public int Height => height;
-		public int CaloriesGoal => caloriesGoal;
-		public double WeightGoal => weightGoal;
+
+        public int CaloriesGoal
+        {
+            get => caloriesGoal;
+            set => caloriesGoal = value;
+        }
+
+        public double WeightGoal
+        {
+            get => weightGoal;
+            set => weightGoal = value;
+        }
 		public Dictionary<DateTime, double> WeightHistory => weightHistory;
 
 

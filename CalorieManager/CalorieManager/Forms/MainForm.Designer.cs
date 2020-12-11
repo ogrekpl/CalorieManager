@@ -1,4 +1,6 @@
-﻿namespace CalorieManager.Forms
+﻿using System.Windows.Forms;
+
+namespace CalorieManager.Forms
 {
 	partial class MainForm
 	{
@@ -42,11 +44,13 @@
             this.weeklyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.loginInfo = new System.Windows.Forms.TextBox();
             this.buttonAddMeal = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.buttonAddActivity = new System.Windows.Forms.Button();
             this.labelDate = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
+            this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -69,6 +73,7 @@
             this.profileToolStripMenuItem.Name = "profileToolStripMenuItem";
             this.profileToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.profileToolStripMenuItem.Text = "Profile";
+            this.profileToolStripMenuItem.Click += new System.EventHandler(this.profileToolStripMenuItem_Click);
             // 
             // editProfileToolStripMenuItem
             // 
@@ -76,7 +81,7 @@
             this.changeCaloriesGoalToolStripMenuItem,
             this.changeWeightGoalToolStripMenuItem});
             this.editProfileToolStripMenuItem.Name = "editProfileToolStripMenuItem";
-            this.editProfileToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.editProfileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editProfileToolStripMenuItem.Text = "Edit Profile";
             // 
             // changeCaloriesGoalToolStripMenuItem
@@ -84,18 +89,21 @@
             this.changeCaloriesGoalToolStripMenuItem.Name = "changeCaloriesGoalToolStripMenuItem";
             this.changeCaloriesGoalToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.changeCaloriesGoalToolStripMenuItem.Text = "Change Calories Goal";
+            this.changeCaloriesGoalToolStripMenuItem.Click += new System.EventHandler(this.changeCaloriesGoalToolStripMenuItem_Click);
             // 
             // changeWeightGoalToolStripMenuItem
             // 
             this.changeWeightGoalToolStripMenuItem.Name = "changeWeightGoalToolStripMenuItem";
             this.changeWeightGoalToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.changeWeightGoalToolStripMenuItem.Text = "Change Weight Goal";
+            this.changeWeightGoalToolStripMenuItem.Click += new System.EventHandler(this.changeWeightGoalToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // addToolStripMenuItem
             // 
@@ -148,10 +156,18 @@
             // 
             // panelMain
             // 
+            this.panelMain.Controls.Add(this.loginInfo);
             this.panelMain.Location = new System.Drawing.Point(247, 27);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(925, 663);
             this.panelMain.TabIndex = 1;
+            // 
+            // loginInfo
+            // 
+            this.loginInfo.Location = new System.Drawing.Point(498, 12);
+            this.loginInfo.Name = "loginInfo";
+            this.loginInfo.Size = new System.Drawing.Size(400, 20);
+            this.loginInfo.TabIndex = 0;
             // 
             // buttonAddMeal
             // 
@@ -208,6 +224,8 @@
             this.Text = "MainForm";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            this.panelMain.ResumeLayout(false);
+            this.panelMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,5 +251,6 @@
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.Button buttonAddActivity;
 		private System.Windows.Forms.Label labelDate;
-	}
+        private System.Windows.Forms.TextBox loginInfo;
+    }
 }
