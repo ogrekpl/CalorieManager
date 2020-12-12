@@ -38,6 +38,8 @@ namespace CalorieManager.Classes
             connection = new SqlConnection(connectionString);
         }
 
+        //User Methods:
+
         public List<User> UsersDataCollection()
         {
             List<User> users = new List<User>();
@@ -122,6 +124,28 @@ namespace CalorieManager.Classes
             connection.Close();
         }
 
+        public void UserDataUpdate(User user)
+        {
+            connection.Open();
+
+            string query = "UPDATE Users SET KcalGoal = @KCALGOAL, WeightGoal = @WEIGHTGOAL WHERE Id = @ID";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.Add("@KCALGOAL", SqlDbType.Int);
+            cmd.Parameters.Add("@WEIGHTGOAL", SqlDbType.Decimal);
+            cmd.Parameters.Add("@ID", SqlDbType.Int);
+
+            cmd.Parameters["@KCALGOAL"].Value = user.CaloriesGoal;
+            cmd.Parameters["@WEIGHTGOAL"].Value = user.WeightGoal;
+            cmd.Parameters["@ID"].Value = user.Id;
+
+            cmd.ExecuteNonQuery();
+
+            connection.Close();
+        }
+
+        //Activity Methods:
+
         public void ActivityDataAdd(Activity activity)
         {
             connection.Open();
@@ -141,6 +165,68 @@ namespace CalorieManager.Classes
 
             connection.Close();
         }
+
+        //Daily Activities Methods:
+
+        public void DailyActivitiesDataAdd(DailyActivities dailyActivities, User user)
+        {
+            connection.Open();
+            string query =
+                "INSERT INTO DailyActivities(Activity, Date, UserId) VALUES (@ACTIVITY, @DATE, @USERID)";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.Add("@ACTIVITY", SqlDbType.Int);
+            cmd.Parameters.Add("@DATE", SqlDbType.DateTime);
+            cmd.Parameters.Add("@USERID", SqlDbType.Int);
+
+            cmd.Parameters["@ACTIVITY"].Value = dailyActivities.Activities.Last();
+            cmd.Parameters["@DATE"].Value = dailyActivities.Date;
+            cmd.Parameters["@USERID"].Value = user.Id;
+
+            cmd.ExecuteNonQuery();
+
+            connection.Close();
+        }
+
+        public void DailyActivitiesDataUpdate(Activity activity, DailyActivities dailyActivities, User user)
+        {
+            connection.Open();
+
+            string query = "UPDATE DailyActivities SET Activity = @ACTIVITY, Date = @DATE, UserId = @USERID WHERE Id = @ID";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.Add("@ACTIVITY", SqlDbType.Int);
+            cmd.Parameters.Add("@DATE", SqlDbType.DateTime);
+            cmd.Parameters.Add("@USERID", SqlDbType.Int);
+            cmd.Parameters.Add("@ID", SqlDbType.Int);
+
+            cmd.Parameters["@ACTIVITY"].Value = activity.Id;
+            cmd.Parameters["@DATE"].Value = dailyActivities.Date;
+            cmd.Parameters["@USERID"].Value = user.Id;
+            cmd.Parameters["@ID"].Value = dailyActivities.Id;
+
+            cmd.ExecuteNonQuery();
+
+            connection.Close();
+        }
+
+        public void DailyActivitiesDataDelete(DailyActivities dailyActivities)
+        {
+            connection.Open();
+
+            string query =
+                "DELETE FROM DailyActivities WHERE Id = @USERID";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.Add("@USERID", SqlDbType.Int);
+            cmd.Parameters["@USERID"].Value = dailyActivities.Id;
+
+            cmd.ExecuteNonQuery();
+
+            connection.Close();
+        }
+
+        //Meal Methods:
 
         public void MealDataAdd(Meal meal)
         {
@@ -167,7 +253,66 @@ namespace CalorieManager.Classes
 
             connection.Close();
         }
-        
+
+        //Daily Meals Methods:
+
+        public void DailyMealsDataAdd(DailyMeals dailyMeals, User user)
+        {
+            connection.Open();
+            string query =
+                "INSERT INTO DailyMeals(Meal, Date, UserId) VALUES (@MEAL, @DATE, @USERID)";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.Add("@MEAL", SqlDbType.Int);
+            cmd.Parameters.Add("@DATE", SqlDbType.DateTime);
+            cmd.Parameters.Add("@USERID", SqlDbType.Int);
+
+            cmd.Parameters["@ACTIVITY"].Value = dailyMeals.Meals.Last();
+            cmd.Parameters["@DATE"].Value = dailyMeals.Date;
+            cmd.Parameters["@USERID"].Value = user.Id;
+
+            cmd.ExecuteNonQuery();
+
+            connection.Close();
+        }
+
+        public void DailyMealsDataUpdate(Meal meal, DailyMeals dailyMeals, User user)
+        {
+            connection.Open();
+
+            string query = "UPDATE DailyMeals SET Meals = @MEALS, Date = @DATE, UserId = @USERID WHERE Id = @ID";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.Add("@ACTIVITY", SqlDbType.Int);
+            cmd.Parameters.Add("@DATE", SqlDbType.DateTime);
+            cmd.Parameters.Add("@USERID", SqlDbType.Int);
+            cmd.Parameters.Add("@ID", SqlDbType.Int);
+
+            cmd.Parameters["@ACTIVITY"].Value = meal.Id;
+            cmd.Parameters["@DATE"].Value = dailyMeals.Date;
+            cmd.Parameters["@USERID"].Value = user.Id;
+            cmd.Parameters["@ID"].Value = dailyMeals.Id;
+
+            cmd.ExecuteNonQuery();
+
+            connection.Close();
+        }
+
+        public void DailyMealsDataDelete(DailyMeals dailyMeals)
+        {
+            connection.Open();
+
+            string query =
+                "DELETE FROM DailyActivities WHERE Id = @USERID";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.Add("@USERID", SqlDbType.Int);
+            cmd.Parameters["@USERID"].Value = dailyMeals.Id;
+
+            cmd.ExecuteNonQuery();
+
+            connection.Close();
+        }
 
     }
 }
