@@ -47,7 +47,6 @@ namespace CalorieManager.Forms
             this.DailySummaryTitle.TabIndex = 0;
             this.DailySummaryTitle.Text = "Summmary for date: 12.12.2020";
             this.DailySummaryTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-
             // 
             // DailySummaryCalories
             // 
@@ -59,7 +58,6 @@ namespace CalorieManager.Forms
             this.DailySummaryCalories.TabIndex = 1;
             this.DailySummaryCalories.Text = "You ate meals at value 2000 kcal";
             this.DailySummaryCalories.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-
             // 
             // DailySummaryDailyActivities
             // 
@@ -99,11 +97,11 @@ namespace CalorieManager.Forms
             // 
             this.DailySummaryCommentValue.AutoSize = true;
             this.DailySummaryCommentValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DailySummaryCommentValue.Location = new System.Drawing.Point(517, 488);
+            this.DailySummaryCommentValue.Location = new System.Drawing.Point(328, 486);
             this.DailySummaryCommentValue.Name = "DailySummaryCommentValue";
-            this.DailySummaryCommentValue.Size = new System.Drawing.Size(104, 29);
+            this.DailySummaryCommentValue.Size = new System.Drawing.Size(509, 29);
             this.DailySummaryCommentValue.TabIndex = 5;
-            this.DailySummaryCommentValue.Text = "Super! :)";
+            this.DailySummaryCommentValue.Text = "Super, you\'ve reached your daily calories goal!";
             this.DailySummaryCommentValue.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // DailySummary
