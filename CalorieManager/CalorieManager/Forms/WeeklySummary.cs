@@ -16,5 +16,10 @@ namespace CalorieManager.Forms
         {
             InitializeComponent();
         }
+
+        private void WeeklySummaryDailyActivities_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

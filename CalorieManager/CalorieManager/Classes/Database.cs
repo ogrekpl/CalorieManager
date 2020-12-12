@@ -365,6 +365,13 @@ namespace CalorieManager.Classes
             connection.Close();
         }
 
+        /// <summary>
+        /// Get necessary data to Daily Summary 
+        /// </summary>
+        /// <param name="user">User</param>
+        /// <param name="dateTime">Date</param>
+        /// <returns></returns>
+
         public int[] DailySummaryDataCollection(User user, DateTime dateTime)
         {
             connection.Open();
