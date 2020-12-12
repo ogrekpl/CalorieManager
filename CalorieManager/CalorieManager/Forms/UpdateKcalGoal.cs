@@ -21,15 +21,17 @@ namespace CalorieManager.Forms
             initializeInputsDefValue();
         }
 
+        /// <summary>
+        /// Event when clicked on button "Set"
+        /// </summary>
+
         private void newKcalGoalValue_Click(object sender, EventArgs e)
         {
             user.CaloriesGoal = Convert.ToInt32(newKcalGoal.Text);
             Database db = new Database();
             db.UserDataUpdate(user);
             MessageBox.Show("Operacja zakończona sukcesem");
-            Form mainForm = new MainForm(user);
             this.Hide();
-            mainForm.Show();
         }
 
         private void newKcalGoal_TextChanged(object sender, EventArgs e)
@@ -40,6 +42,16 @@ namespace CalorieManager.Forms
         private void initializeInputsDefValue()
         {
 	        newKcalGoal.Text = Convert.ToString(user.CaloriesGoal);
+        }
+
+        private void newKcalGoal_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateKcalGoal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

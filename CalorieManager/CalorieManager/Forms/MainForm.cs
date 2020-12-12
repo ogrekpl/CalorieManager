@@ -24,16 +24,12 @@ namespace CalorieManager.Forms
 
         private void buttonAddActivity_Click(object sender, EventArgs e)
         {
-			Form addActivityForm = new AddActivityForm();
-            this.Hide();
-			addActivityForm.Show();
+
 		}
 
         private void buttonAddMeal_Click(object sender, EventArgs e)
         {
-			Form addMealForm = new AddMealForm();
-            this.Hide();
-            addMealForm.Show();
+
 		}
 
         private void profileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -41,19 +37,29 @@ namespace CalorieManager.Forms
 
         }
 
+        /// <summary>
+        /// Event when clicked on button "Change Calories Goal" in Strip Menu "Profile" -> "Edit Profile"
+        /// </summary>
+
         private void changeCaloriesGoalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Form updateKcalGoal = new UpdateKcalGoal(user);
-            updateKcalGoal.Show();
+            updateKcalGoal.ShowDialog();
         }
+
+        /// <summary>
+        /// Event when clicked on button "Change Weight Goal" in Strip Menu "Profile" -> "Edit Profile"
+        /// </summary>
 
         private void changeWeightGoalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Form updateWeightGoal = new UpdateWeightGoal(user);
-            updateWeightGoal.Show();
+            updateWeightGoal.ShowDialog();
         }
+
+        /// <summary>
+        /// Event when clicked on button "Logout" in Strip Menu "Profile"
+        /// </summary>
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -63,6 +69,29 @@ namespace CalorieManager.Forms
             loginform.Show();
         }
 
-        
+        /// <summary>
+        /// Event when clicked on button "New Meal" in Strip Menu "New"
+        /// </summary>
+
+        private void newMealToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form addMealForm = new AddMealForm();
+            addMealForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Event when clicked on button "New Activity" in Strip Menu "New"
+        /// </summary>
+
+        private void newActivityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form addActivityForm = new AddActivityForm();
+            addActivityForm.ShowDialog();
+        }
+
+        private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

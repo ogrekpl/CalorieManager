@@ -53,5 +53,10 @@ namespace CalorieManager
 				Convert.ToInt32(inputKcalGoal.Value), Convert.ToDouble(inputWeightGoal.Value), 
 				new Dictionary<DateTime, double>(){{DateTime.Now, Convert.ToDouble(inputWeight.Value)}});
 		}
-	}
+
+        private void NewProfileForm_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

@@ -117,14 +117,16 @@ namespace CalorieManager.Forms
             // newMealToolStripMenuItem
             // 
             this.newMealToolStripMenuItem.Name = "newMealToolStripMenuItem";
-            this.newMealToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.newMealToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newMealToolStripMenuItem.Text = "New meal";
+            this.newMealToolStripMenuItem.Click += new System.EventHandler(this.newMealToolStripMenuItem_Click);
             // 
             // newActivityToolStripMenuItem
             // 
             this.newActivityToolStripMenuItem.Name = "newActivityToolStripMenuItem";
-            this.newActivityToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.newActivityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newActivityToolStripMenuItem.Text = "New activity";
+            this.newActivityToolStripMenuItem.Click += new System.EventHandler(this.newActivityToolStripMenuItem_Click);
             // 
             // summaryToolStripMenuItem
             // 
@@ -161,6 +163,7 @@ namespace CalorieManager.Forms
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(925, 663);
             this.panelMain.TabIndex = 1;
+            this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
             // loginInfo
             // 

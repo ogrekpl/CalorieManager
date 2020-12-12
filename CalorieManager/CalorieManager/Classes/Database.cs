@@ -21,11 +21,11 @@ namespace CalorieManager.Classes
         /// <summary>
         /// Constructor of class Database
         /// </summary>
-        /// <param name="server"></param>
-        /// <param name="databaseName"></param>
-        /// <param name="uid"></param>
-        /// <param name="password"></param>
-        /// <param name="connection"></param>
+        /// <param name="server">Server</param>
+        /// <param name="databaseName">Database Name</param>
+        /// <param name="uid">User ID</param>
+        /// <param name="password">Password</param>
+        /// <param name="connection">Connection String</param>
         public Database()
         {
             server = System.Windows.Forms.SystemInformation.ComputerName + @"\ADIX155";
@@ -38,7 +38,10 @@ namespace CalorieManager.Classes
             connection = new SqlConnection(connectionString);
         }
 
-        //User Methods:
+        /// <summary>
+        /// Collection of User from Database
+        /// </summary>
+        /// <returns>List of Users</returns>
 
         public List<User> UsersDataCollection()
         {
@@ -76,6 +79,11 @@ namespace CalorieManager.Classes
             connection.Close();
             return users;
         }
+
+        /// <summary>
+        /// Add new User to Database
+        /// </summary>
+        /// <param name="user">User</param>
 
         public void UserDataAdd(User user)
         {
@@ -124,6 +132,11 @@ namespace CalorieManager.Classes
             connection.Close();
         }
 
+        /// <summary>
+        /// Update of User data in Database
+        /// </summary>
+        /// <param name="user">User</param>
+
         public void UserDataUpdate(User user)
         {
             connection.Open();
@@ -144,7 +157,10 @@ namespace CalorieManager.Classes
             connection.Close();
         }
 
-        //Activity Methods:
+        /// <summary>
+        /// Add new Activity to Database
+        /// </summary>
+        /// <param name="activity">Activity</param>
 
         public void ActivityDataAdd(Activity activity)
         {
@@ -166,7 +182,11 @@ namespace CalorieManager.Classes
             connection.Close();
         }
 
-        //Daily Activities Methods:
+        /// <summary>
+        /// Add new DailyActivities to Database
+        /// </summary>
+        /// <param name="dailyActivities">Daily Activities</param>
+        /// <param name="user"User>User</param>
 
         public void DailyActivitiesDataAdd(DailyActivities dailyActivities, User user)
         {
@@ -187,6 +207,13 @@ namespace CalorieManager.Classes
 
             connection.Close();
         }
+
+        /// <summary>
+        /// Update DailyActivities in Database
+        /// </summary>
+        /// <param name="activity">Activity</param>
+        /// <param name="dailyActivities">Daily Activities</param>
+        /// <param name="user">User</param>
 
         public void DailyActivitiesDataUpdate(Activity activity, DailyActivities dailyActivities, User user)
         {
@@ -210,6 +237,11 @@ namespace CalorieManager.Classes
             connection.Close();
         }
 
+        /// <summary>
+        /// Delete Daily Activities from Database
+        /// </summary>
+        /// <param name="dailyActivities">Daily Activities</param>
+
         public void DailyActivitiesDataDelete(DailyActivities dailyActivities)
         {
             connection.Open();
@@ -226,7 +258,10 @@ namespace CalorieManager.Classes
             connection.Close();
         }
 
-        //Meal Methods:
+        /// <summary>
+        /// Add new Meal to Database
+        /// </summary>
+        /// <param name="meal">Meal</param>
 
         public void MealDataAdd(Meal meal)
         {
@@ -254,7 +289,11 @@ namespace CalorieManager.Classes
             connection.Close();
         }
 
-        //Daily Meals Methods:
+        /// <summary>
+        /// Add new DailyMeals to Database
+        /// </summary>
+        /// <param name="dailyMeals">Daily Meals</param>
+        /// <param name="user">User</param>
 
         public void DailyMealsDataAdd(DailyMeals dailyMeals, User user)
         {
@@ -275,6 +314,13 @@ namespace CalorieManager.Classes
 
             connection.Close();
         }
+
+        /// <summary>
+        /// Update DailyMeals in Database
+        /// </summary>
+        /// <param name="meal">Meal</param>
+        /// <param name="dailyMeals">Daily Meals</param>
+        /// <param name="user">User</param>
 
         public void DailyMealsDataUpdate(Meal meal, DailyMeals dailyMeals, User user)
         {
@@ -297,6 +343,11 @@ namespace CalorieManager.Classes
 
             connection.Close();
         }
+
+        /// <summary>
+        /// Delete DailyMeals from Database
+        /// </summary>
+        /// <param name="dailyMeals">Daily Meals</param>
 
         public void DailyMealsDataDelete(DailyMeals dailyMeals)
         {
