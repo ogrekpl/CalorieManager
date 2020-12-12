@@ -18,7 +18,7 @@ namespace CalorieManager.Forms
         {
             this.user = user;
             InitializeComponent();
-            newWeightGoal.Text = Convert.ToString(user.WeightGoal);
+            initializeInputsDefValue();
         }
 
         private void newWeightGoalValue_Click(object sender, EventArgs e)
@@ -31,5 +31,9 @@ namespace CalorieManager.Forms
             this.Hide();
             mainForm.Show();
         }
+
+        private void initializeInputsDefValue()
+        {
+	        newWeightGoal.Text = Convert.ToString(user.WeightGoal);        }
     }
 }
