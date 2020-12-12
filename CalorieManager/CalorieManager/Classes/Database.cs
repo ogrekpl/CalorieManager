@@ -365,5 +365,86 @@ namespace CalorieManager.Classes
             connection.Close();
         }
 
+        public int[] DailySummaryDataCollection(User user, DateTime dateTime)
+        {
+            connection.Open();
+            string query =
+                "SELECT Meal FROM DailyMeals WHERE UserId = @USERID AND Date = @DATE";
+            string query2 =
+                "SELECT Kcal FROM Meal WHERE Id = @ID";
+            string query3 =
+                "SELECT Activity FROM DailyActivities WHERE UserId = @USERID AND Date = @DATE";
+            string query4 =
+                "SELECT Calories FROM Activities WHERE Id = @ID";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlCommand cmd2 = new SqlCommand(query2, connection);
+            SqlCommand cmd3 = new SqlCommand(query3, connection);
+            SqlCommand cmd4 = new SqlCommand(query4, connection);
+
+            cmd.Parameters.Add("@USERID", SqlDbType.Int);
+            cmd.Parameters.Add("@DATE", SqlDbType.DateTime);
+            cmd2.Parameters.Add("@ID", SqlDbType.Int);
+            cmd3.Parameters.Add("@USERID", SqlDbType.Int);
+            cmd3.Parameters.Add("@DATE", SqlDbType.DateTime);
+            cmd4.Parameters.Add("@ID", SqlDbType.Int);
+
+            cmd.Parameters["@DATE"].Value = dateTime.Date;
+            cmd.Parameters["@USERID"].Value = user.Id;
+            cmd3.Parameters["@DATE"].Value = dateTime.Date;
+            cmd3.Parameters["@USERID"].Value = user.Id;
+
+            List<Int32> dailyMeals = new List<int>();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                dailyMeals.Add(reader.GetInt32(0));
+            }
+            reader.Close();
+
+            List<Int32> dailyMealsKcalSum = new List<int>();
+
+            for (int i = 0; i < dailyMeals.Count; i++)
+            {
+                cmd2.Parameters["@ID"].Value = dailyMeals[i];
+                SqlDataReader reader2 = cmd2.ExecuteReader();
+                while (reader2.Read())
+                {
+                    dailyMealsKcalSum.Add(reader2.GetInt32(0));
+                }
+                reader2.Close();
+            }
+            
+
+            int dailyCaloriesSum = dailyMealsKcalSum.Sum();
+
+            List<Int32> dailyActivities = new List<int>();
+
+            SqlDataReader reader3 = cmd3.ExecuteReader();
+            while (reader3.Read())
+            {
+                dailyMeals.Add(reader3.GetInt32(0));
+            }
+            reader3.Close();
+
+            List<Int32> dailyActivitiesKcalSum = new List<int>();
+
+            for (int i = 0; i < dailyActivities.Count; i++)
+            {
+                cmd4.Parameters["@ID"].Value = dailyActivities[i];
+                SqlDataReader reader4 = cmd4.ExecuteReader();
+                while (reader4.Read())
+                {
+                    dailyMealsKcalSum.Add(reader4.GetInt32(0));
+                }
+                reader4.Close();
+            }
+
+            int dailyActivitySum = dailyActivitiesKcalSum.Sum();
+
+            return new[] {dailyCaloriesSum, dailyActivitySum};
+
+        }
+
     }
 }

@@ -81,7 +81,7 @@ namespace CalorieManager.Forms
             this.changeCaloriesGoalToolStripMenuItem,
             this.changeWeightGoalToolStripMenuItem});
             this.editProfileToolStripMenuItem.Name = "editProfileToolStripMenuItem";
-            this.editProfileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editProfileToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.editProfileToolStripMenuItem.Text = "Edit Profile";
             // 
             // changeCaloriesGoalToolStripMenuItem
@@ -101,7 +101,7 @@ namespace CalorieManager.Forms
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -117,14 +117,14 @@ namespace CalorieManager.Forms
             // newMealToolStripMenuItem
             // 
             this.newMealToolStripMenuItem.Name = "newMealToolStripMenuItem";
-            this.newMealToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newMealToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.newMealToolStripMenuItem.Text = "New meal";
             this.newMealToolStripMenuItem.Click += new System.EventHandler(this.newMealToolStripMenuItem_Click);
             // 
             // newActivityToolStripMenuItem
             // 
             this.newActivityToolStripMenuItem.Name = "newActivityToolStripMenuItem";
-            this.newActivityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newActivityToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.newActivityToolStripMenuItem.Text = "New activity";
             this.newActivityToolStripMenuItem.Click += new System.EventHandler(this.newActivityToolStripMenuItem_Click);
             // 
@@ -141,19 +141,20 @@ namespace CalorieManager.Forms
             // dailyToolStripMenuItem
             // 
             this.dailyToolStripMenuItem.Name = "dailyToolStripMenuItem";
-            this.dailyToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.dailyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dailyToolStripMenuItem.Text = "Daily";
+            this.dailyToolStripMenuItem.Click += new System.EventHandler(this.dailyToolStripMenuItem_Click);
             // 
             // weeklyToolStripMenuItem
             // 
             this.weeklyToolStripMenuItem.Name = "weeklyToolStripMenuItem";
-            this.weeklyToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.weeklyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.weeklyToolStripMenuItem.Text = "Weekly";
             // 
             // monthlyToolStripMenuItem
             // 
             this.monthlyToolStripMenuItem.Name = "monthlyToolStripMenuItem";
-            this.monthlyToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.monthlyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.monthlyToolStripMenuItem.Text = "Monthly";
             // 
             // panelMain

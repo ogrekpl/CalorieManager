@@ -93,5 +93,11 @@ namespace CalorieManager.Forms
         {
 
         }
+
+        private void dailyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form dailySummary = new DailySummary(DateTime.Today, user);
+            dailySummary.ShowDialog();
+        }
     }
 }
