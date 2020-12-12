@@ -10,10 +10,10 @@ namespace CalorieManager.Classes
     class DailyMeals
     {
         private uint id;
-        private List<Meal> meals;
+        private Meal meal;
         private DateTime date;
         public uint Id => id;
-        public List<Meal> Meals => meals;
+        public Meal Meal => meal;
         public DateTime Date => date;
 
         /// <summary>
@@ -22,10 +22,10 @@ namespace CalorieManager.Classes
         /// <param name="id">Id</param>
         /// <param name="meals">Meals</param>
         /// <param name="date">Date</param>
-        public DailyMeals(uint id, List<Meal> meals, DateTime date)
+        public DailyMeals(uint id, Meal meal, DateTime date)
         {
             this.id = id;
-            this.meals = meals;
+            this.meal = meal;
             this.date = date;
         }
 
@@ -34,9 +34,9 @@ namespace CalorieManager.Classes
         /// </summary>
         /// <param name="meals">Meals</param>
         /// <param name="date">Date</param>
-        public DailyMeals(List<Meal> meals, DateTime date)
+        public DailyMeals(Meal meal, DateTime date)
         {
-	        this.meals = meals;
+	        this.meal = meal;
 	        this.date = date;
         }
 

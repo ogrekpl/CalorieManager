@@ -9,23 +9,23 @@ namespace CalorieManager.Classes
     class DailyActivities
     {
         private uint id;
-        private List<Activity> activities;
+        private Activity activity;
         private DateTime date;
 
         public uint Id => id;
-        public List<Activity> Activities => activities;
+        public Activity Activity => activity;
         public DateTime Date => date;
 
-        public DailyActivities(uint id, List<Activity> activities, DateTime date)
+        public DailyActivities(uint id, Activity activity, DateTime date)
         {
             this.id = id;
-            this.activities = activities;
+            this.activity = activity;
             this.date = date;
         }
 
-        public DailyActivities(List<Activity> activities, DateTime date)
+        public DailyActivities(Activity activity, DateTime date)
         {
-            this.activities = activities;
+            this.activity = activity;
             this.date = date;
         }
     }
