@@ -330,6 +330,55 @@ namespace CalorieManager.Classes
         }
 
         /// <summary>
+        /// Collect all of Daily Activities form Database, which are connected to User Id, at specified Date
+        /// </summary>
+        /// <param name="user">User</param>
+        /// <param name="date">Date</param>
+        /// <returns></returns>
+
+        public List<DailyActivities> DailyActivitiesDataCollectionDate(User user, DateTime date)
+        {
+            List<DailyActivities> dailyActivities = new List<DailyActivities>();
+
+            connection.Open();
+            string query = "SELECT * FROM DailyActivities WHERE UserId = @USERID AND Date = @DATE";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.Add("@USERID", SqlDbType.Int);
+            cmd.Parameters.Add("@DATE", SqlDbType.DateTime);
+            cmd.Parameters["@USERID"].Value = user.Id;
+            cmd.Parameters["@DATE"].Value = date.Date;
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Activity activity = new Activity(1, "a", "a", 1);
+                int activityId = reader.GetInt32(1);
+                string query2 = "SELECT * FROM Activities WHERE Id = @ID";
+                SqlCommand cmd2 = new SqlCommand(query2, connection);
+                cmd2.Parameters.Add("@ID", SqlDbType.Int);
+                cmd2.Parameters["@ID"].Value = activityId;
+                SqlDataReader reader2 = cmd2.ExecuteReader();
+                int a = 0;
+                while (reader2.Read() && a == 0)
+                {
+                    Activity newActivity = new Activity((uint)reader2.GetInt32(0), reader2.GetString(1), reader2.GetString(2),
+                        reader2.GetInt32(3));
+                    a++;
+                    activity = newActivity;
+                }
+
+                reader2.Close();
+                DailyActivities dailyActivity = new DailyActivities((uint)reader.GetInt32(0), activity, date.Date);
+                dailyActivities.Add(dailyActivity);
+            }
+            reader.Close();
+
+            connection.Close();
+            return dailyActivities;
+        }
+
+        /// <summary>
         /// Add new Meal to Database
         /// </summary>
         /// <param name="meal">Meal</param>
@@ -482,7 +531,56 @@ namespace CalorieManager.Classes
             {
                 Meal meal = new Meal(1, "a", "b", 1, 1, 1, 1);
                 int mealId = reader.GetInt32(1);
-                string query2 = "SELECT * FROM Activities WHERE Id = @ID";
+                string query2 = "SELECT * FROM Meal WHERE Id = @ID";
+                SqlCommand cmd2 = new SqlCommand(query2, connection);
+                cmd2.Parameters.Add("@ID", SqlDbType.Int);
+                cmd2.Parameters["@ID"].Value = mealId;
+                SqlDataReader reader2 = cmd2.ExecuteReader();
+                int a = 0;
+                while (reader2.Read() && a == 0)
+                {
+                    Meal newMeal = new Meal((uint)reader2.GetInt32(0), reader2.GetString(1), reader2.GetString(2),
+                        reader2.GetInt32(3), reader2.GetInt32(4), reader2.GetInt32(5), reader2.GetInt32(6));
+                    a++;
+                    meal = newMeal;
+                }
+
+                reader2.Close();
+                DailyMeals dailyMeal = new DailyMeals((uint)reader.GetInt32(0), meal, reader.GetDateTime(2));
+                dailyMeals.Add(dailyMeal);
+            }
+            reader.Close();
+
+            connection.Close();
+            return dailyMeals;
+        }
+
+        /// <summary>
+        /// Collect all of Daily Meals form Database, which are connected to User Id, at specified Date
+        /// </summary>
+        /// <param name="user">User</param>
+        /// <param name="date">Date</param>
+        /// <returns></returns>
+
+        public List<DailyMeals> DailyMealsDataCollectionDate(User user, DateTime date)
+        {
+            List<DailyMeals> dailyMeals = new List<DailyMeals>();
+
+            connection.Open();
+            string query = "SELECT * FROM DailyMeals WHERE UserId = @USERID and Date = @DATE";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.Add("@USERID", SqlDbType.Int);
+            cmd.Parameters.Add("@DATE", SqlDbType.DateTime);
+            cmd.Parameters["@USERID"].Value = user.Id;
+            cmd.Parameters["@DATE"].Value = date.Date;
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Meal meal = new Meal(1, "a", "b", 1, 1, 1, 1);
+                int mealId = reader.GetInt32(1);
+                string query2 = "SELECT * FROM Meal WHERE Id = @ID";
                 SqlCommand cmd2 = new SqlCommand(query2, connection);
                 cmd2.Parameters.Add("@ID", SqlDbType.Int);
                 cmd2.Parameters["@ID"].Value = mealId;
