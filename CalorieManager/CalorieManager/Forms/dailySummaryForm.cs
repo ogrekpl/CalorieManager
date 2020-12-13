@@ -26,10 +26,10 @@ namespace CalorieManager.Forms
 			//get all acc date + user id
 			dailyActivities = new List<DailyActivitie>();
 			dailyMeals = new List<DailyMeal>();
-			activeDate = DateTime.Today;
-			dateTimePicker1.Value = activeDate;
+			activeDate = DateTime.Now.Date;
 			this.user = user;
 			InitializeComponent();
+			dateTimePicker1.Value = activeDate;
 		}
 
 		private void buttonAddActivity_Click(object sender, EventArgs e)
@@ -108,7 +108,7 @@ namespace CalorieManager.Forms
 			Database db = new Database();
 		}
 
-		private void RefreshPanels()
+		public void RefreshPanels()
 		{
 			panel1.Controls.Clear();
 			mealControls = LoadMealsControl(dailyMeals);
