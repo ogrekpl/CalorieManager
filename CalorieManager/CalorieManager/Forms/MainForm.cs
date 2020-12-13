@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -111,6 +112,12 @@ namespace CalorieManager.Forms
 	        panelChild.Tag = childForm;
 	        childForm.BringToFront();
 	        childForm.Show();
+        }
+
+        private void weeklyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form weeklySummary = new WeeklySummary(DateTime.Today, user);
+            weeklySummary.ShowDialog();
         }
     }
 }

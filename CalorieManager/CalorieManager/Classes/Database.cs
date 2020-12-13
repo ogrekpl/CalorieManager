@@ -681,12 +681,71 @@ namespace CalorieManager.Classes
             return new[] {dailyCaloriesSum, dailyActivitySum};
         }
 
+        /// <summary>
+        /// Get data to Daily Summary Form
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
         public int[] DailySummaryDataCollection(User user, DateTime dateTime)
         {
             connection.Open();
             int[] result = DailySummary(user, dateTime);
             connection.Close();
             return result;
+        }
+
+        /// <summary>
+        /// Get data to Weekly Summary Form
+        /// </summary>
+        /// <param name="user">User</param>
+        /// <param name="todayDate">Date of following day - method computes Start/EndDate itself</param>
+        /// <returns></returns>
+        public int[] WeeklySummaryDataCollection(User user, DateTime todayDate)
+        {
+            connection.Open();
+
+            int delta = DayOfWeek.Monday - todayDate.DayOfWeek;
+            if (delta > 0)
+            {
+                delta -= 7;
+            }
+
+            List<DateTime> week = new List<DateTime>();
+            DateTime monday = todayDate.AddDays(delta);
+            week.Add(monday);
+
+            for (int i = 1; i < 7; i++)
+            {
+                DateTime nextDay = week[i - 1].AddDays(1);
+                week.Add(nextDay);
+            }
+
+            int[,] dailySummaries = new int[week.Count, 2];
+
+            for (int i = 0; i < week.Count; i++)
+            {
+                int[] dailyResult = DailySummary(user, week[i]);
+                for (int j = 0; j < dailyResult.Length; j++)
+                {
+                    dailySummaries[i, j] = dailyResult[j];
+                }
+            }
+
+            int weeklyCalories = 0;
+            int weeklyActivities = 0;
+            int weeklyReachedGoals = 0;
+            for (int i = 0; i < dailySummaries.Length/2; i++)
+            {
+                weeklyCalories += dailySummaries[i, 0];
+                weeklyActivities += dailySummaries[i, 1];
+                if (dailySummaries[i,0] - dailySummaries[i,1] <= user.CaloriesGoal)
+                {
+                    weeklyReachedGoals += 1;
+                }
+            }
+            return new int[] {monday.Day, monday.Month, monday.Year, week.Last().Day, week.Last().Month, week.Last().Year,
+                weeklyCalories, weeklyActivities, weeklyReachedGoals};
         }
 
     }
