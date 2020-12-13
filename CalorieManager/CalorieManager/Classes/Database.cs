@@ -464,15 +464,15 @@ namespace CalorieManager.Classes
         {
             connection.Open();
 
-            string query = "UPDATE DailyMeals SET Meals = @MEALS, Date = @DATE, UserId = @USERID WHERE Id = @ID";
+            string query = "UPDATE DailyMeals SET Meal = @MEAL, Date = @DATE, UserId = @USERID WHERE Id = @ID";
             SqlCommand cmd = new SqlCommand(query, connection);
 
-            cmd.Parameters.Add("@ACTIVITY", SqlDbType.Int);
+            cmd.Parameters.Add("@MEAL", SqlDbType.Int);
             cmd.Parameters.Add("@DATE", SqlDbType.DateTime);
             cmd.Parameters.Add("@USERID", SqlDbType.Int);
             cmd.Parameters.Add("@ID", SqlDbType.Int);
 
-            cmd.Parameters["@ACTIVITY"].Value = meal.Id;
+            cmd.Parameters["@MEAL"].Value = meal.Id;
             cmd.Parameters["@DATE"].Value = dailyMeals.Date;
             cmd.Parameters["@USERID"].Value = user.Id;
             cmd.Parameters["@ID"].Value = dailyMeals.Id;
