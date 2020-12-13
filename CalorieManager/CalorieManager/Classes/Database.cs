@@ -213,7 +213,7 @@ namespace CalorieManager.Classes
         /// <param name="dailyActivities">Daily Activities</param>
         /// <param name="user"User>User</param>
 
-        public void DailyActivitiesDataAdd(DailyActivities dailyActivities, User user)
+        public void DailyActivitiesDataAdd(DailyActivitie dailyActivities, User user)
         {
             connection.Open();
             string query =
@@ -239,8 +239,7 @@ namespace CalorieManager.Classes
         /// <param name="activity">Activity</param>
         /// <param name="dailyActivities">Daily Activities</param>
         /// <param name="user">User</param>
-
-        public void DailyActivitiesDataUpdate(Activity activity, DailyActivities dailyActivities, User user)
+        public void DailyActivitiesDataUpdate(Activity activity, DailyActivitie dailyActivities, User user)
         {
             connection.Open();
 
@@ -266,8 +265,7 @@ namespace CalorieManager.Classes
         /// Delete Daily Activities from Database
         /// </summary>
         /// <param name="dailyActivities">Daily Activities</param>
-
-        public void DailyActivitiesDataDelete(DailyActivities dailyActivities)
+        public void DailyActivitiesDataDelete(DailyActivitie dailyActivities)
         {
             connection.Open();
 
@@ -288,10 +286,9 @@ namespace CalorieManager.Classes
         /// </summary>
         /// <param name="user">User</param>
         /// <returns></returns>
-
-        public List<DailyActivities> DailyActivitiesDataCollection(User user)
+        public List<DailyActivitie> DailyActivitiesDataCollection(User user)
         {
-            List<DailyActivities> dailyActivities = new List<DailyActivities>();
+            List<DailyActivitie> dailyActivities = new List<DailyActivitie>();
 
             connection.Open();
             string query = "SELECT * FROM DailyActivities WHERE UserId = @USERID";
@@ -320,7 +317,7 @@ namespace CalorieManager.Classes
                 }
                 
                 reader2.Close();
-                DailyActivities dailyActivity = new DailyActivities((uint)reader.GetInt32(0), activity, reader.GetDateTime(2));
+                DailyActivitie dailyActivity = new DailyActivitie((uint)reader.GetInt32(0), activity, reader.GetDateTime(2));
                 dailyActivities.Add(dailyActivity);
             }
             reader.Close();
@@ -335,10 +332,9 @@ namespace CalorieManager.Classes
         /// <param name="user">User</param>
         /// <param name="date">Date</param>
         /// <returns></returns>
-
-        public List<DailyActivities> DailyActivitiesDataCollectionDate(User user, DateTime date)
+        public List<DailyActivitie> DailyActivitiesDataCollectionDate(User user, DateTime date)
         {
-            List<DailyActivities> dailyActivities = new List<DailyActivities>();
+            List<DailyActivitie> dailyActivities = new List<DailyActivitie>();
 
             connection.Open();
             string query = "SELECT * FROM DailyActivities WHERE UserId = @USERID AND Date = @DATE";
@@ -369,7 +365,7 @@ namespace CalorieManager.Classes
                 }
 
                 reader2.Close();
-                DailyActivities dailyActivity = new DailyActivities((uint)reader.GetInt32(0), activity, date.Date);
+                DailyActivitie dailyActivity = new DailyActivitie((uint)reader.GetInt32(0), activity, date.Date);
                 dailyActivities.Add(dailyActivity);
             }
             reader.Close();
@@ -382,7 +378,6 @@ namespace CalorieManager.Classes
         /// Add new Meal to Database
         /// </summary>
         /// <param name="meal">Meal</param>
-
         public void MealDataAdd(Meal meal)
         {
             connection.Open();
@@ -413,13 +408,12 @@ namespace CalorieManager.Classes
         /// Collect list of all Meals from Database
         /// </summary>
         /// <returns></returns>
-
         public List<Meal> MealDataCollection()
         {
             List<Meal> meals = new List<Meal>();
 
             connection.Open();
-            string query = "SELECT * FROM Meals";
+            string query = "SELECT * FROM Meal";
             SqlCommand cmd = new SqlCommand(query, connection);
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
@@ -439,7 +433,7 @@ namespace CalorieManager.Classes
         /// <param name="dailyMeals">Daily Meals</param>
         /// <param name="user">User</param>
 
-        public void DailyMealsDataAdd(DailyMeals dailyMeals, User user)
+        public void DailyMealsDataAdd(DailyMeal dailyMeals, User user)
         {
             connection.Open();
             string query =
@@ -450,7 +444,7 @@ namespace CalorieManager.Classes
             cmd.Parameters.Add("@DATE", SqlDbType.DateTime);
             cmd.Parameters.Add("@USERID", SqlDbType.Int);
 
-            cmd.Parameters["@ACTIVITY"].Value = dailyMeals.Meal;
+            cmd.Parameters["@MEAL"].Value = dailyMeals.Meal;
             cmd.Parameters["@DATE"].Value = dailyMeals.Date;
             cmd.Parameters["@USERID"].Value = user.Id;
 
@@ -466,7 +460,7 @@ namespace CalorieManager.Classes
         /// <param name="dailyMeals">Daily Meals</param>
         /// <param name="user">User</param>
 
-        public void DailyMealsDataUpdate(Meal meal, DailyMeals dailyMeals, User user)
+        public void DailyMealsDataUpdate(Meal meal, DailyMeal dailyMeals, User user)
         {
             connection.Open();
 
@@ -493,7 +487,7 @@ namespace CalorieManager.Classes
         /// </summary>
         /// <param name="dailyMeals">Daily Meals</param>
 
-        public void DailyMealsDataDelete(DailyMeals dailyMeals)
+        public void DailyMealsDataDelete(DailyMeal dailyMeals)
         {
             connection.Open();
 
@@ -514,10 +508,9 @@ namespace CalorieManager.Classes
         /// </summary>
         /// <param name="user">User</param>
         /// <returns></returns>
-
-        public List<DailyMeals> DailyMealsDataCollection(User user)
+        public List<DailyMeal> DailyMealsDataCollection(User user)
         {
-            List<DailyMeals> dailyMeals = new List<DailyMeals>();
+            List<DailyMeal> dailyMeals = new List<DailyMeal>();
 
             connection.Open();
             string query = "SELECT * FROM DailyMeals WHERE UserId = @USERID";
@@ -546,7 +539,7 @@ namespace CalorieManager.Classes
                 }
 
                 reader2.Close();
-                DailyMeals dailyMeal = new DailyMeals((uint)reader.GetInt32(0), meal, reader.GetDateTime(2));
+                DailyMeal dailyMeal = new DailyMeal((uint)reader.GetInt32(0), meal, reader.GetDateTime(2));
                 dailyMeals.Add(dailyMeal);
             }
             reader.Close();
@@ -561,10 +554,9 @@ namespace CalorieManager.Classes
         /// <param name="user">User</param>
         /// <param name="date">Date</param>
         /// <returns></returns>
-
-        public List<DailyMeals> DailyMealsDataCollectionDate(User user, DateTime date)
+        public List<DailyMeal> DailyMealsDataCollectionDate(User user, DateTime date)
         {
-            List<DailyMeals> dailyMeals = new List<DailyMeals>();
+            List<DailyMeal> dailyMeals = new List<DailyMeal>();
 
             connection.Open();
             string query = "SELECT * FROM DailyMeals WHERE UserId = @USERID and Date = @DATE";
@@ -595,7 +587,7 @@ namespace CalorieManager.Classes
                 }
 
                 reader2.Close();
-                DailyMeals dailyMeal = new DailyMeals((uint)reader.GetInt32(0), meal, reader.GetDateTime(2));
+                DailyMeal dailyMeal = new DailyMeal((uint)reader.GetInt32(0), meal, reader.GetDateTime(2));
                 dailyMeals.Add(dailyMeal);
             }
             reader.Close();

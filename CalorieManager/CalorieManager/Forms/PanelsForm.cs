@@ -39,12 +39,21 @@ namespace CalorieManager.Forms
 
 		private void buttonAddMeal_Click(object sender, EventArgs e)
 		{
-			//Tworzymy daily meal oraz dodajemy do list w formie
+			NewDailyMealForm form = new NewDailyMealForm(user);
+			form.ShowDialog();
+			LoadDailyMeals();
+			RefreshPanels();
 		}
 
 		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
 		{
 			activeDate = dateTimePicker1.Value;
+		}
+
+		private void LoadDailyMeals()
+		{
+			Database db = new Database();
+			dailyMeals = db.DailyMealsDataCollectionDate(user, activeDate);
 		}
 
 		private List<MealControl> LoadMealsControl(List<DailyMeal> dM)
@@ -101,11 +110,6 @@ namespace CalorieManager.Forms
 				mC.Location = new Point(10, panel2.Controls.Count * (mC.Height + 30));
 				panel2.Controls.Add(mC);
 			}
-		}
-
-		private void LoadDaily()
-		{
-			Database db = new Database();
 		}
 
 		public void RefreshPanels()
