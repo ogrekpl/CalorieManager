@@ -602,10 +602,8 @@ namespace CalorieManager.Classes
         /// <param name="user">User</param>
         /// <param name="dateTime">Date</param>
         /// <returns></returns>
-
-        public int[] DailySummaryDataCollection(User user, DateTime dateTime)
+        public int[] DailySummary(User user, DateTime dateTime)
         {
-            connection.Open();
             string query =
                 "SELECT Meal FROM DailyMeals WHERE UserId = @USERID AND Date = @DATE";
             string query2 =
@@ -681,7 +679,14 @@ namespace CalorieManager.Classes
             int dailyActivitySum = dailyActivitiesKcalSum.Sum();
 
             return new[] {dailyCaloriesSum, dailyActivitySum};
+        }
 
+        public int[] DailySummaryDataCollection(User user, DateTime dateTime)
+        {
+            connection.Open();
+            int[] result = DailySummary(user, dateTime);
+            connection.Close();
+            return result;
         }
 
     }
