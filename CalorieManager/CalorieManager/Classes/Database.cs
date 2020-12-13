@@ -168,7 +168,7 @@ namespace CalorieManager.Classes
 
         //Daily Activities Methods:
 
-        public void DailyActivitiesDataAdd(DailyActivities dailyActivities, User user)
+        public void DailyActivitiesDataAdd(DailyActivitie dailyActivities, User user)
         {
             connection.Open();
             string query =
@@ -188,7 +188,7 @@ namespace CalorieManager.Classes
             connection.Close();
         }
 
-        public void DailyActivitiesDataUpdate(Activity activity, DailyActivities dailyActivities, User user)
+        public void DailyActivitiesDataUpdate(Activity activity, DailyActivitie dailyActivities, User user)
         {
             connection.Open();
 
@@ -210,7 +210,7 @@ namespace CalorieManager.Classes
             connection.Close();
         }
 
-        public void DailyActivitiesDataDelete(DailyActivities dailyActivities)
+        public void DailyActivitiesDataDelete(DailyActivitie dailyActivities)
         {
             connection.Open();
 

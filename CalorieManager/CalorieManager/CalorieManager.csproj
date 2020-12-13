@@ -89,7 +89,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Activity.cs" />
-    <Compile Include="Classes\DailyActivities.cs" />
+    <Compile Include="Classes\DailyActivitie.cs" />
+    <Compile Include="Controls\ActivityControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ActivityControl.Designer.cs">
+      <DependentUpon>ActivityControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddActivityForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,12 @@
     </Compile>
     <Compile Include="Classes\DailyMeals.cs" />
     <Compile Include="Classes\Database.cs" />
+    <Compile Include="Forms\DailySummaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DailySummaryForm.Designer.cs">
+      <DependentUpon>DailySummaryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +135,12 @@
     <Compile Include="Forms\NewProfileForm.Designer.cs">
       <DependentUpon>NewProfileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UpdateDailyActivitie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdateDailyActivitie.Designer.cs">
+      <DependentUpon>UpdateDailyActivitie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UpdateKcalGoal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,11 +156,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\User.cs" />
+    <EmbeddedResource Include="Controls\ActivityControl.resx">
+      <DependentUpon>ActivityControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddActivityForm.resx">
       <DependentUpon>AddActivityForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddMealForm.resx">
       <DependentUpon>AddMealForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DailySummaryForm.resx">
+      <DependentUpon>DailySummaryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -152,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewProfileForm.resx">
       <DependentUpon>NewProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UpdateDailyActivitie.resx">
+      <DependentUpon>UpdateDailyActivitie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UpdateKcalGoal.resx">
       <DependentUpon>UpdateKcalGoal.cs</DependentUpon>
@@ -182,5 +209,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,12 +14,13 @@ namespace CalorieManager.Forms
 	public partial class MainForm : Form
     {
         private User user;
+        private Form activeForm;
 
 		public MainForm(User user)
         {
             this.user = user;
+            activeForm = null;
             InitializeComponent();
-            loginInfo.Text = "Jesteś zalogowany jako: " + user.Name;
         }
 
         private void buttonAddActivity_Click(object sender, EventArgs e)
@@ -63,6 +64,21 @@ namespace CalorieManager.Forms
             loginform.Show();
         }
 
-        
+        private void showChildForm(Form childForm)
+        {
+	        if (activeForm != null)
+	        {
+		        activeForm.Close();
+	        }
+
+	        activeForm = childForm;
+	        childForm.TopLevel = false;
+	        childForm.FormBorderStyle = FormBorderStyle.None;
+	        childForm.Dock = DockStyle.Fill;
+	        panelChildForm.Controls.Add(childForm);
+	        panelChildForm.Tag = childForm;
+	        childForm.BringToFront();
+	        childForm.Show();
+        }
     }
 }
