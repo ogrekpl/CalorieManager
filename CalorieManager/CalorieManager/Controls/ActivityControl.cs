@@ -34,7 +34,7 @@ namespace CalorieManager.Controls
 			Database db = new Database();
 			db.DailyActivitiesDataDelete(dailyActivitie);
 			//usun z wyświetlania
-			DailySummaryForm form = Application.OpenForms["DailySummaryForm"] as DailySummaryForm;
+			PanelsForm form = Application.OpenForms["DailySummaryForm"] as PanelsForm;
 			form.RefreshPanels();
 			MessageBox.Show("Success.");
 		}

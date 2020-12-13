@@ -116,11 +116,11 @@
     </Compile>
     <Compile Include="Classes\DailyMeal.cs" />
     <Compile Include="Classes\Database.cs" />
-    <Compile Include="Forms\DailySummaryForm.cs">
+    <Compile Include="Forms\PanelsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DailySummaryForm.Designer.cs">
-      <DependentUpon>DailySummaryForm.cs</DependentUpon>
+    <Compile Include="Forms\PanelsForm.Designer.cs">
+      <DependentUpon>PanelsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -180,8 +180,8 @@
     <EmbeddedResource Include="Forms\AddMealForm.resx">
       <DependentUpon>AddMealForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DailySummaryForm.resx">
-      <DependentUpon>DailySummaryForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\PanelsForm.resx">
+      <DependentUpon>PanelsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

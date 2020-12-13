@@ -13,7 +13,7 @@ using CalorieManager.Controls;
 
 namespace CalorieManager.Forms
 {
-	public partial class DailySummaryForm : Form
+	public partial class PanelsForm : Form
 	{
 		private User user;
 		private DateTime activeDate;
@@ -21,7 +21,7 @@ namespace CalorieManager.Forms
 		private List<MealControl> mealControls;
 		private List<DailyActivitie> dailyActivities;
 		private List<DailyMeal> dailyMeals;
-		public DailySummaryForm(User user)
+		public PanelsForm(User user)
 		{
 			//get all acc date + user id
 			dailyActivities = new List<DailyActivitie>();

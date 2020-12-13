@@ -1,6 +1,6 @@
 ﻿namespace CalorieManager.Forms
 {
-	partial class DailySummaryForm
+	partial class PanelsForm
 	{
 		/// <summary>
 		/// Required designer variable.

@@ -21,7 +21,7 @@ namespace CalorieManager.Forms
             this.user = user;
             activeForm = null;
             InitializeComponent();
-            showChildForm(new DailySummaryForm(user));
+            showChildForm(new PanelsForm(user));
         }
 
         private void buttonAddActivity_Click(object sender, EventArgs e)
