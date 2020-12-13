@@ -34,7 +34,7 @@ namespace CalorieManager.Forms
             this.WeeklySummaryCalories = new System.Windows.Forms.Label();
             this.WeeklySummaryTitle = new System.Windows.Forms.Label();
             this.WeeklySummaryTitle2 = new System.Windows.Forms.Label();
-            this.WeeklySummaryDailyActivities = new System.Windows.Forms.Label();
+            this.WeeklySummaryActivities = new System.Windows.Forms.Label();
             this.WeeklySummaryScore = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -92,18 +92,19 @@ namespace CalorieManager.Forms
             this.WeeklySummaryTitle2.TabIndex = 12;
             this.WeeklySummaryTitle2.Text = "07.12.2020 - 13.12.2020";
             this.WeeklySummaryTitle2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.WeeklySummaryTitle2.Click += new System.EventHandler(this.WeeklySummaryTitle2_Click);
             // 
-            // WeeklySummaryDailyActivities
+            // WeeklySummaryActivities
             // 
-            this.WeeklySummaryDailyActivities.AutoSize = true;
-            this.WeeklySummaryDailyActivities.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.WeeklySummaryDailyActivities.Location = new System.Drawing.Point(85, 329);
-            this.WeeklySummaryDailyActivities.Name = "WeeklySummaryDailyActivities";
-            this.WeeklySummaryDailyActivities.Size = new System.Drawing.Size(1000, 39);
-            this.WeeklySummaryDailyActivities.TabIndex = 13;
-            this.WeeklySummaryDailyActivities.Text = "During your actvities in following week you have burned 500 kcal ";
-            this.WeeklySummaryDailyActivities.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.WeeklySummaryDailyActivities.Click += new System.EventHandler(this.WeeklySummaryDailyActivities_Click);
+            this.WeeklySummaryActivities.AutoSize = true;
+            this.WeeklySummaryActivities.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.WeeklySummaryActivities.Location = new System.Drawing.Point(85, 329);
+            this.WeeklySummaryActivities.Name = "WeeklySummaryActivities";
+            this.WeeklySummaryActivities.Size = new System.Drawing.Size(1000, 39);
+            this.WeeklySummaryActivities.TabIndex = 13;
+            this.WeeklySummaryActivities.Text = "During your actvities in following week you have burned 500 kcal ";
+            this.WeeklySummaryActivities.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.WeeklySummaryActivities.Click += new System.EventHandler(this.WeeklySummaryDailyActivities_Click);
             // 
             // WeeklySummaryScore
             // 
@@ -122,7 +123,7 @@ namespace CalorieManager.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1144, 624);
             this.Controls.Add(this.WeeklySummaryScore);
-            this.Controls.Add(this.WeeklySummaryDailyActivities);
+            this.Controls.Add(this.WeeklySummaryActivities);
             this.Controls.Add(this.WeeklySummaryTitle2);
             this.Controls.Add(this.WeeklySummaryCommentValue);
             this.Controls.Add(this.WeeklySummaryCommentTitle);
@@ -130,6 +131,7 @@ namespace CalorieManager.Forms
             this.Controls.Add(this.WeeklySummaryTitle);
             this.Name = "WeeklySummary";
             this.Text = "WeeklySummary";
+            this.Load += new System.EventHandler(this.WeeklySummary_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,7 +144,7 @@ namespace CalorieManager.Forms
         private System.Windows.Forms.Label WeeklySummaryCalories;
         private System.Windows.Forms.Label WeeklySummaryTitle;
         private System.Windows.Forms.Label WeeklySummaryTitle2;
-        private System.Windows.Forms.Label WeeklySummaryDailyActivities;
+        private System.Windows.Forms.Label WeeklySummaryActivities;
         private System.Windows.Forms.Label WeeklySummaryScore;
     }
 }

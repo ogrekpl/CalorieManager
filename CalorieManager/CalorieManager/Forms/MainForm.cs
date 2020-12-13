@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,7 +63,7 @@ namespace CalorieManager.Forms
         /// </summary>
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Wylogowano użytkownika " + user.Name);
+            MessageBox.Show("Logout of user " + user.Name + " was successful");
             this.Hide();
             LoginForm loginform = new LoginForm();
             loginform.Show();
@@ -111,6 +112,18 @@ namespace CalorieManager.Forms
 	        panelChild.Tag = childForm;
 	        childForm.BringToFront();
 	        childForm.Show();
+        }
+
+        private void weeklyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form weeklySummary = new WeeklySummary(DateTime.Today, user);
+            weeklySummary.ShowDialog();
+        }
+
+        private void monthlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form monthlySummary = new MonthlySummary(DateTime.Today, user);
+            monthlySummary.ShowDialog();
         }
     }
 }

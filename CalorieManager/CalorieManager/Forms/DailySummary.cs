@@ -23,10 +23,10 @@ namespace CalorieManager.Forms
             this.user = user;
             this.database = new Database();
             InitializeComponent();
-            LoadTextForSummary(dateTime, user);
+            LoadTextForSummary();
         }
 
-        private void LoadTextForSummary(DateTime dateTime, User user)
+        private void LoadTextForSummary()
         {
             int[] results = database.DailySummaryDataCollection(user, dateTime);
             int score = results[0] - results[1];

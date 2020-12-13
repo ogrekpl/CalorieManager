@@ -492,7 +492,7 @@ namespace CalorieManager.Classes
             connection.Open();
 
             string query =
-                "DELETE FROM DailyActivities WHERE Id = @USERID";
+                "DELETE FROM DailyMeals WHERE Id = @USERID";
             SqlCommand cmd = new SqlCommand(query, connection);
 
             cmd.Parameters.Add("@USERID", SqlDbType.Int);
@@ -597,15 +597,13 @@ namespace CalorieManager.Classes
         }
 
         /// <summary>
-        /// Get necessary data to Daily Summary 
+        /// Get necessary data to Summary Methods
         /// </summary>
         /// <param name="user">User</param>
         /// <param name="dateTime">Date</param>
         /// <returns></returns>
-
-        public int[] DailySummaryDataCollection(User user, DateTime dateTime)
+        public int[] DailySummary(User user, DateTime dateTime)
         {
-            connection.Open();
             string query =
                 "SELECT Meal FROM DailyMeals WHERE UserId = @USERID AND Date = @DATE";
             string query2 =
@@ -681,8 +679,146 @@ namespace CalorieManager.Classes
             int dailyActivitySum = dailyActivitiesKcalSum.Sum();
 
             return new[] {dailyCaloriesSum, dailyActivitySum};
-
         }
 
+        /// <summary>
+        /// Get data to Daily Summary Form
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        public int[] DailySummaryDataCollection(User user, DateTime dateTime)
+        {
+            connection.Open();
+            int[] result = DailySummary(user, dateTime);
+            connection.Close();
+            return result;
+        }
+
+        /// <summary>
+        /// Get data to Weekly Summary Form
+        /// </summary>
+        /// <param name="user">User</param>
+        /// <param name="todayDate">Date of following day - method computes Start/EndDate itself</param>
+        /// <returns></returns>
+        public int[] WeeklySummaryDataCollection(User user, DateTime todayDate)
+        {
+            connection.Open();
+
+            int delta = DayOfWeek.Monday - todayDate.DayOfWeek;
+            if (delta > 0)
+            {
+                delta -= 7;
+            }
+
+            List<DateTime> week = new List<DateTime>();
+            DateTime monday = todayDate.AddDays(delta);
+            week.Add(monday);
+
+            for (int i = 1; i < 7; i++)
+            {
+                DateTime nextDay = week[i - 1].AddDays(1);
+                week.Add(nextDay);
+            }
+
+            int[,] dailySummaries = new int[week.Count, 2];
+
+            for (int i = 0; i < week.Count; i++)
+            {
+                int[] dailyResult = DailySummary(user, week[i]);
+                for (int j = 0; j < dailyResult.Length; j++)
+                {
+                    dailySummaries[i, j] = dailyResult[j];
+                }
+            }
+
+            int weeklyCalories = 0;
+            int weeklyActivities = 0;
+            int weeklyReachedGoals = 0;
+            for (int i = 0; i < dailySummaries.GetLength(0); i++)
+            {
+                weeklyCalories += dailySummaries[i, 0];
+                weeklyActivities += dailySummaries[i, 1];
+                if (dailySummaries[i,0] - dailySummaries[i,1] <= user.CaloriesGoal)
+                {
+                    weeklyReachedGoals += 1;
+                }
+            }
+            connection.Close();
+            return new int[] {monday.Day, monday.Month, monday.Year, week.Last().Day, week.Last().Month, week.Last().Year,
+                weeklyCalories, weeklyActivities, weeklyReachedGoals};
+        }
+
+        /// <summary>
+        /// Get data to Monthly Summary Form
+        /// </summary>
+        /// <param name="user">User</param>
+        /// <param name="todayDate">Date of following day - method computes Start/EndDate itself</param>
+        /// <returns></returns>
+        public double[] MonthlySummaryDataCollection(User user, DateTime todayDate)
+        {
+            connection.Open();
+            DateTime firstDateOfMonth = new DateTime(todayDate.Year, todayDate.Month, 1);
+            DateTime lastDateOfMonth = firstDateOfMonth.AddMonths(1).AddDays(-1);
+
+            List<DateTime> month = new List<DateTime>();
+            month.Add(firstDateOfMonth);
+
+            for (int i = 1; i < lastDateOfMonth.Day; i++)
+            {
+                DateTime nextDay = month[i - 1].AddDays(1);
+                month.Add(nextDay);
+            }
+
+            int[,] dailySummaries = new int[month.Count, 2];
+
+            for (int i = 0; i < month.Count; i++)
+            {
+                int[] dailyResult = DailySummary(user, month[i]);
+                for (int j = 0; j < dailyResult.Length; j++)
+                {
+                    dailySummaries[i, j] = dailyResult[j];
+                }
+            }
+
+            int monthlyCalories = 0;
+            int monthlyActivities = 0;
+            int monthlyReachedGoals = 0;
+            for (int i = 0; i < dailySummaries.GetLength(0); i++)
+            {
+                monthlyCalories += dailySummaries[i, 0];
+                monthlyActivities += dailySummaries[i, 1];
+                if (dailySummaries[i, 0] - dailySummaries[i, 1] <= user.CaloriesGoal)
+                {
+                    monthlyReachedGoals += 1;
+                }
+            }
+
+            string query =
+                "SELECT Weight from WeightHistory WHERE (Date BETWEEN @STARTDATE AND @ENDDATE) AND Id = @ID ORDER BY Date";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.Add("@STARTDATE", SqlDbType.DateTime);
+            cmd.Parameters.Add("@ENDDATE", SqlDbType.DateTime);
+            cmd.Parameters.Add("@ID", SqlDbType.Int);
+
+            cmd.Parameters["@STARTDATE"].Value = firstDateOfMonth;
+            cmd.Parameters["@ENDDATE"].Value = lastDateOfMonth;
+            cmd.Parameters["@ID"].Value = (int)user.Id;
+
+            List<Double> weights = new List<double>();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                weights.Add(Convert.ToDouble(reader.GetDecimal(0)));
+            }
+            reader.Close();
+            connection.Close();
+
+            double weightChange = weights.First() - weights.Last();
+
+            return new double[] {lastDateOfMonth.Day,monthlyCalories, monthlyActivities, monthlyReachedGoals, weightChange};
+        }
     }
 }
