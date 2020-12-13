@@ -94,8 +94,8 @@ namespace CalorieManager.Forms
 
         private void dailyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form dailySummary = new DailySummary(DateTime.Today, user);
-            dailySummary.ShowDialog();
+            PanelsForm form = Application.OpenForms["Panelsform"] as PanelsForm;
+            showChildForm(new DailySummary(form.GetDate(), user));
         }
         private void showChildForm(Form childForm)
         {
@@ -116,14 +116,19 @@ namespace CalorieManager.Forms
 
         private void weeklyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form weeklySummary = new WeeklySummary(DateTime.Today, user);
-            weeklySummary.ShowDialog();
+            PanelsForm form = Application.OpenForms["Panelsform"] as PanelsForm;
+            showChildForm(new WeeklySummary(form.GetDate(), user));
         }
 
         private void monthlyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form monthlySummary = new MonthlySummary(DateTime.Today, user);
-            monthlySummary.ShowDialog();
+            PanelsForm form = Application.OpenForms["Panelsform"] as PanelsForm;
+            showChildForm(new MonthlySummary(form.GetDate(), user));
+        }
+
+        private void manageCaloriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showChildForm(new PanelsForm(user));
         }
     }
 }

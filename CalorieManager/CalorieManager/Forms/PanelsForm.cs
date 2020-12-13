@@ -135,5 +135,12 @@ namespace CalorieManager.Forms
 			LoadToPanelActivities(activitiyControls);
 			LoadToPanelMeals(mealControls);
 		}
+
+        public DateTime GetDate()
+        {
+			DateTime dateTime = new DateTime();
+            dateTime = dateTimePicker1.Value;
+            return dateTime;
+        }
 	}
 }

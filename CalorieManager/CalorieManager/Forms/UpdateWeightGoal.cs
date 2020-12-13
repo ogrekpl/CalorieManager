@@ -14,6 +14,11 @@ namespace CalorieManager.Forms
     public partial class UpdateWeightGoal : Form
     {
         private User user;
+
+        /// <summary>
+        /// Constructor of class Update Weight Goal
+        /// </summary>
+        /// <param name="user">User</param>
         public UpdateWeightGoal(User user)
         {
             this.user = user;

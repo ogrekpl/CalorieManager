@@ -45,6 +45,7 @@ namespace CalorieManager.Forms
             this.monthlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.panelChild = new System.Windows.Forms.Panel();
+            this.manageCaloriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,8 @@ namespace CalorieManager.Forms
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.profileToolStripMenuItem,
             this.addToolStripMenuItem,
-            this.summaryToolStripMenuItem});
+            this.summaryToolStripMenuItem,
+            this.manageCaloriesToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(1184, 24);
@@ -168,6 +170,13 @@ namespace CalorieManager.Forms
             this.panelChild.Size = new System.Drawing.Size(1160, 663);
             this.panelChild.TabIndex = 1;
             // 
+            // manageCaloriesToolStripMenuItem
+            // 
+            this.manageCaloriesToolStripMenuItem.Name = "manageCaloriesToolStripMenuItem";
+            this.manageCaloriesToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
+            this.manageCaloriesToolStripMenuItem.Text = "Manage Calories";
+            this.manageCaloriesToolStripMenuItem.Click += new System.EventHandler(this.manageCaloriesToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,5 +211,6 @@ namespace CalorieManager.Forms
 		private System.Windows.Forms.ToolStripMenuItem monthlyToolStripMenuItem;
 		private System.Windows.Forms.Panel panelChildForm;
         private Panel panelChild;
+        private ToolStripMenuItem manageCaloriesToolStripMenuItem;
     }
 }

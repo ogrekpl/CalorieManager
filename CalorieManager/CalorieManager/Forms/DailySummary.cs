@@ -17,6 +17,11 @@ namespace CalorieManager.Forms
         private User user;
         private Database database;
 
+        /// <summary>
+        /// Constructor of class Daily Summary
+        /// </summary>
+        /// <param name="dateTime">Date</param>
+        /// <param name="user">User</param>
         public DailySummary(DateTime dateTime, User user)
         {
             this.dateTime = dateTime;
@@ -26,6 +31,9 @@ namespace CalorieManager.Forms
             LoadTextForSummary();
         }
 
+        /// <summary>
+        /// Load data to Daily Summary
+        /// </summary>
         private void LoadTextForSummary()
         {
             int[] results = database.DailySummaryDataCollection(user, dateTime);
@@ -41,7 +49,7 @@ namespace CalorieManager.Forms
             }
             else
             {
-                comment = "Unfornunately you've not reached your daily calories goal.";
+                comment =  "Unfornunately you've not reached your daily calories goal.";
             }
 
             DailySummaryCommentValue.Text = comment;
