@@ -62,7 +62,7 @@ namespace CalorieManager.Forms
         /// </summary>
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Wylogowano użytkownika " + user.Name);
+            MessageBox.Show("Logout of user " + user.Name + " was successful");
             this.Hide();
             LoginForm loginform = new LoginForm();
             loginform.Show();
