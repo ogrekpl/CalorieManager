@@ -41,6 +41,7 @@ namespace CalorieManager.Forms
 			Database db = new Database();
 			dailyActivitie = new DailyActivitie(activitie, DateTime.Today);
 			db.DailyActivitiesDataAdd(dailyActivitie, user);
+			this.Close();
 		}
 	}
 }
