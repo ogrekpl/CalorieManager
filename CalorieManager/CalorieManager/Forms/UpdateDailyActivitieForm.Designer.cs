@@ -49,7 +49,7 @@
 			// 
 			this.labelNewActivity.AutoSize = true;
 			this.labelNewActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.labelNewActivity.Location = new System.Drawing.Point(160, 9);
+			this.labelNewActivity.Location = new System.Drawing.Point(160, 28);
 			this.labelNewActivity.Name = "labelNewActivity";
 			this.labelNewActivity.Size = new System.Drawing.Size(110, 31);
 			this.labelNewActivity.TabIndex = 29;
@@ -59,7 +59,7 @@
 			// 
 			this.comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.comboBox.FormattingEnabled = true;
-			this.comboBox.Location = new System.Drawing.Point(132, 90);
+			this.comboBox.Location = new System.Drawing.Point(141, 90);
 			this.comboBox.Name = "comboBox";
 			this.comboBox.Size = new System.Drawing.Size(169, 39);
 			this.comboBox.TabIndex = 37;

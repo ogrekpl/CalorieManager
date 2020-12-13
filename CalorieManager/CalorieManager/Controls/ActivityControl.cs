@@ -16,32 +16,36 @@ namespace CalorieManager.Controls
 	{
 		private DailyActivitie dailyActivitie;
 		public DailyActivitie DailyActivitie => dailyActivitie;
-		public ActivityControl(DailyActivitie dailyActivitie)
+		private User user;
+		public ActivityControl(DailyActivitie dailyActivitie, User user)
 		{
+			this.user = user;
 			this.dailyActivitie = dailyActivitie;
 			InitializeComponent();
+			UpdateLabels(null, EventArgs.Empty);
 		}
 
 		private void buttonEdit_Click(object sender, EventArgs e)
 		{
-			Form editDailyActivitie = new UpdateDailyActivitieForm(dailyActivitie);
+			Form editDailyActivitie = new UpdateDailyActivitieForm(dailyActivitie, user);
 			editDailyActivitie.ShowDialog();
-			editDailyActivitie.Closed += updateLabels;
+			editDailyActivitie.Closed += UpdateLabels;
 		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
 			Database db = new Database();
 			db.DailyActivitiesDataDelete(dailyActivitie);
-			//usun z wyświetlania
-			PanelsForm form = Application.OpenForms["DailySummaryForm"] as PanelsForm;
+			PanelsForm form = Application.OpenForms["PanelsForm"] as PanelsForm;
 			form.RefreshPanels();
-			MessageBox.Show("Success.");
+			MessageBox.Show("Success");
 		}
 
-		private void updateLabels(object sender, EventArgs e)
+		private void UpdateLabels(object sender, EventArgs e)
 		{
-			
+			labelName.Text = dailyActivitie.Activitie.Name;
+			labelDescription.Text = dailyActivitie.Activitie.Description;
+			labelCalories.Text = Convert.ToString(dailyActivitie.Activitie.Calories);
 		}
 	}
 }

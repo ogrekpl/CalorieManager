@@ -48,7 +48,7 @@
 			// 
 			this.labelNewActivity.AutoSize = true;
 			this.labelNewActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.labelNewActivity.Location = new System.Drawing.Point(183, 9);
+			this.labelNewActivity.Location = new System.Drawing.Point(183, 29);
 			this.labelNewActivity.Name = "labelNewActivity";
 			this.labelNewActivity.Size = new System.Drawing.Size(76, 31);
 			this.labelNewActivity.TabIndex = 37;

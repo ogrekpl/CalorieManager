@@ -78,19 +78,21 @@
 			// 
 			// panel1
 			// 
-			this.panel1.Location = new System.Drawing.Point(314, 12);
+			this.panel1.AutoScroll = true;
+			this.panel1.Location = new System.Drawing.Point(280, 12);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(406, 605);
 			this.panel1.TabIndex = 11;
 			// 
 			// panel2
 			// 
-			this.panel2.Location = new System.Drawing.Point(726, 12);
+			this.panel2.AutoScroll = true;
+			this.panel2.Location = new System.Drawing.Point(709, 12);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(406, 605);
 			this.panel2.TabIndex = 12;
 			// 
-			// DailySummaryForm
+			// PanelsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -101,7 +103,7 @@
 			this.Controls.Add(this.buttonAddActivity);
 			this.Controls.Add(this.dateTimePicker1);
 			this.Controls.Add(this.buttonAddMeal);
-			this.Name = "DailySummaryForm";
+			this.Name = "PanelsForm";
 			this.Text = "dailySummaryForm";
 			this.ResumeLayout(false);
 			this.PerformLayout();

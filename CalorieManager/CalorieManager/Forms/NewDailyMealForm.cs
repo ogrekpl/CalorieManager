@@ -40,6 +40,7 @@ namespace CalorieManager.Forms
 			Database db = new Database();
 			dailyMeal = new DailyMeal(meal, DateTime.Today);
 			db.DailyMealsDataAdd(dailyMeal, user);
+			this.Close();
 		}
 	}
 }

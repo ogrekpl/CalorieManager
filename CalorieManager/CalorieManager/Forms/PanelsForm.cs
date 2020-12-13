@@ -74,7 +74,7 @@ namespace CalorieManager.Forms
 
 			foreach (var meal in dM)
 			{
-				temp.Add(new MealControl(meal));
+				temp.Add(new MealControl(meal, user));
 			}
 
 			return  temp;
@@ -86,7 +86,7 @@ namespace CalorieManager.Forms
 
 			foreach (var activity in dA)
 			{
-				temp.Add(new ActivityControl(activity));
+				temp.Add(new ActivityControl(activity, user));
 			}
 
 			return  temp;
@@ -94,14 +94,14 @@ namespace CalorieManager.Forms
 
 		private void AddToPanelActivitie(DailyActivitie activitie)
 		{
-			ActivityControl activeControl = new ActivityControl(activitie);
+			ActivityControl activeControl = new ActivityControl(activitie, user);
 			activeControl.Location = new Point(10, panel2.Controls.Count * (activeControl.Height + 30));
 			panel2.Controls.Add(activeControl);
 		}
 
 		private void AddToPanelMeal(DailyMeal meal)
 		{
-			MealControl mealControl = new MealControl(meal);
+			MealControl mealControl = new MealControl(meal, user);
 			mealControl.Location = new Point(10, panel1.Controls.Count * (mealControl.Height + 30));
 			panel1.Controls.Add(mealControl);
 		}
@@ -127,6 +127,9 @@ namespace CalorieManager.Forms
 		public void RefreshPanels()
 		{
 			panel1.Controls.Clear();
+			panel2.Controls.Clear();
+			LoadDailyMeals();
+			LoadDailyActivities();
 			mealControls = LoadMealsControl(dailyMeals);
 			activitiyControls = LoadActivityControls(dailyActivities);
 			LoadToPanelActivities(activitiyControls);
