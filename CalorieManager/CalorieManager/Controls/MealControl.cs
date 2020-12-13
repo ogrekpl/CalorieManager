@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CalorieManager.Classes;
 
-namespace CalorieManager.Forms
+namespace CalorieManager.Controls
 {
-	public partial class UpdateDailyActivitie : Form
+	public partial class MealControl : UserControl
 	{
-		private DailyActivitie dailyActivitie;
-		public UpdateDailyActivitie(DailyActivitie dailyActivitie)
+		public MealControl(DailyMeal meal)
 		{
 			InitializeComponent();
 		}

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CalorieManager.Classes
 {
-    class Meal
+    public class Meal
     {
         private uint id;
         private string name;

@@ -24,7 +24,7 @@ namespace CalorieManager.Controls
 
 		private void buttonEdit_Click(object sender, EventArgs e)
 		{
-			Form editDailyActivitie = new UpdateDailyActivitie(dailyActivitie);
+			Form editDailyActivitie = new UpdateDailyActivitieForm(dailyActivitie);
 			editDailyActivitie.ShowDialog();
 			editDailyActivitie.Closed += updateLabels;
 		}
@@ -34,6 +34,9 @@ namespace CalorieManager.Controls
 			Database db = new Database();
 			db.DailyActivitiesDataDelete(dailyActivitie);
 			//usun z wyświetlania
+			Form form = Application.OpenForms["DailySummaryForm"] as DailySummaryForm;
+			form.RefreshPanels();
+			MessageBox.Show("Success.");
 		}
 
 		private void updateLabels(object sender, EventArgs e)

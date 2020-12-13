@@ -7,7 +7,7 @@ using CalorieManager.Forms;
 
 namespace CalorieManager.Classes
 {
-    class DailyMeals
+    public class DailyMeal
     {
         private uint id;
         private Meal meal;
@@ -22,7 +22,7 @@ namespace CalorieManager.Classes
         /// <param name="id">Id</param>
         /// <param name="meals">Meals</param>
         /// <param name="date">Date</param>
-        public DailyMeals(uint id, Meal meal, DateTime date)
+        public DailyMeal(uint id, Meal meal, DateTime date)
         {
             this.id = id;
             this.meal = meal;
@@ -34,7 +34,7 @@ namespace CalorieManager.Classes
         /// </summary>
         /// <param name="meals">Meals</param>
         /// <param name="date">Date</param>
-        public DailyMeals(Meal meal, DateTime date)
+        public DailyMeal(Meal meal, DateTime date)
         {
 	        this.meal = meal;
 	        this.date = date;

@@ -11,7 +11,6 @@ namespace CalorieManager.Classes
         private uint id;
         private Activity activitie;
         private DateTime date;
-
         public uint Id => id;
         public Activity Activitie => activitie;
         public DateTime Date => date;

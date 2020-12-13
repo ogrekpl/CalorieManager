@@ -179,7 +179,7 @@ namespace CalorieManager.Classes
             cmd.Parameters.Add("@DATE", SqlDbType.DateTime);
             cmd.Parameters.Add("@USERID", SqlDbType.Int);
 
-            cmd.Parameters["@ACTIVITY"].Value = dailyActivities.Activity;
+            cmd.Parameters["@ACTIVITY"].Value = dailyActivities.Activitie;
             cmd.Parameters["@DATE"].Value = dailyActivities.Date;
             cmd.Parameters["@USERID"].Value = user.Id;
 
@@ -256,7 +256,7 @@ namespace CalorieManager.Classes
 
         //Daily Meals Methods:
 
-        public void DailyMealsDataAdd(DailyMeals dailyMeals, User user)
+        public void DailyMealsDataAdd(DailyMeal dailyMeals, User user)
         {
             connection.Open();
             string query =
@@ -276,7 +276,7 @@ namespace CalorieManager.Classes
             connection.Close();
         }
 
-        public void DailyMealsDataUpdate(Meal meal, DailyMeals dailyMeals, User user)
+        public void DailyMealsDataUpdate(Meal meal, DailyMeal dailyMeals, User user)
         {
             connection.Open();
 
@@ -298,7 +298,7 @@ namespace CalorieManager.Classes
             connection.Close();
         }
 
-        public void DailyMealsDataDelete(DailyMeals dailyMeals)
+        public void DailyMealsDataDelete(DailyMeal dailyMeals)
         {
             connection.Open();
 
