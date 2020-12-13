@@ -119,5 +119,11 @@ namespace CalorieManager.Forms
             Form weeklySummary = new WeeklySummary(DateTime.Today, user);
             weeklySummary.ShowDialog();
         }
+
+        private void monthlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form monthlySummary = new MonthlySummary(DateTime.Today, user);
+            monthlySummary.ShowDialog();
+        }
     }
 }

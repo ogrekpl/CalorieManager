@@ -152,6 +152,7 @@ namespace CalorieManager.Forms
             this.monthlyToolStripMenuItem.Name = "monthlyToolStripMenuItem";
             this.monthlyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.monthlyToolStripMenuItem.Text = "Monthly";
+            this.monthlyToolStripMenuItem.Click += new System.EventHandler(this.monthlyToolStripMenuItem_Click);
             // 
             // panelChildForm
             // 

@@ -20,8 +20,8 @@ namespace CalorieManager.Forms
         /// <summary>
         /// Constructor of class WeeklySummary
         /// </summary>
-        /// <param name="dateTime"></param>
-        /// <param name="user"></param>
+        /// <param name="dateTime">Date</param>
+        /// <param name="user">User</param>
         public WeeklySummary(DateTime dateTime, User user)
         {
             this.dateTime = dateTime;
@@ -34,8 +34,8 @@ namespace CalorieManager.Forms
         /// <summary>
         /// Load information to Weekly Summary Form
         /// </summary>
-        /// <param name="dateTime"></param>
-        /// <param name="user"></param>
+        /// <param name="dateTime">Date</param>
+        /// <param name="user">User</param>
         private void LoadTextForSummary(DateTime dateTime, User user)
         {
             int[] result = database.WeeklySummaryDataCollection(user, dateTime);
