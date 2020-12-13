@@ -116,6 +116,12 @@
     </Compile>
     <Compile Include="Classes\DailyMeal.cs" />
     <Compile Include="Classes\Database.cs" />
+    <Compile Include="Forms\DailySummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DailySummary.Designer.cs">
+      <DependentUpon>DailySummary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PanelsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,12 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Meal.cs" />
+    <Compile Include="Forms\MonthlySummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MonthlySummary.Designer.cs">
+      <DependentUpon>MonthlySummary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\NewProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +177,12 @@
     <Compile Include="Forms\UpdateWeightGoal.Designer.cs">
       <DependentUpon>UpdateWeightGoal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\WeeklySummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WeeklySummary.Designer.cs">
+      <DependentUpon>WeeklySummary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\User.cs" />
@@ -180,6 +198,9 @@
     <EmbeddedResource Include="Forms\AddMealForm.resx">
       <DependentUpon>AddMealForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DailySummary.resx">
+      <DependentUpon>DailySummary.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PanelsForm.resx">
       <DependentUpon>PanelsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MonthlySummary.resx">
+      <DependentUpon>MonthlySummary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewProfileForm.resx">
       <DependentUpon>NewProfileForm.cs</DependentUpon>
@@ -203,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UpdateWeightGoal.resx">
       <DependentUpon>UpdateWeightGoal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WeeklySummary.resx">
+      <DependentUpon>WeeklySummary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

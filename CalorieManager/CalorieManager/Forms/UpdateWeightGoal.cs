@@ -21,19 +21,27 @@ namespace CalorieManager.Forms
             initializeInputsDefValue();
         }
 
+        /// <summary>
+        /// Event when clicked on button "Set"
+        /// </summary>
+
         private void newWeightGoalValue_Click(object sender, EventArgs e)
         {
             user.WeightGoal = Convert.ToDouble(newWeightGoal.Text);
             Database db = new Database();
             db.UserDataUpdate(user);
-            MessageBox.Show("Operacja zakończona sukcesem");
-            Form mainForm = new MainForm(user);
+            MessageBox.Show("Finished with success.");
             this.Hide();
-            mainForm.Show();
         }
 
         private void initializeInputsDefValue()
         {
-	        newWeightGoal.Text = Convert.ToString(user.WeightGoal);        }
+	        newWeightGoal.Text = Convert.ToString(user.WeightGoal);
+        }
+
+        private void UpdateWeightGoal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

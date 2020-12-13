@@ -38,5 +38,10 @@ namespace CalorieManager.Forms
 			}
 
 		}
-	}
+
+        private void AddActivityForm_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

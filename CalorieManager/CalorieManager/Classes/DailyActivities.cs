@@ -16,12 +16,25 @@ namespace CalorieManager.Classes
         public Activity Activity => activity;
         public DateTime Date => date;
 
+        /// <summary>
+        /// Constructor of DailyActivities class
+        /// </summary>
+        /// <param name="id">Id</param>
+        /// <param name="activity">Activity</param>
+        /// <param name="date">Date</param>
+
         public DailyActivities(uint id, Activity activity, DateTime date)
         {
             this.id = id;
             this.activity = activity;
             this.date = date;
         }
+
+        /// <summary>
+        /// Constructor of DailyActivities class without Id
+        /// </summary>
+        /// <param name="activity">Activity</param>
+        /// <param name="date">Date</param>
 
         public DailyActivities(Activity activity, DateTime date)
         {
