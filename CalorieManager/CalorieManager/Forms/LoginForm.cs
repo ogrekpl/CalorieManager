@@ -28,6 +28,7 @@ namespace CalorieManager
 			Form newProfileForm = new NewProfileForm();
 			newProfileForm.ShowDialog();
 			newProfileForm.Closed += OnNewProfileFormClosed;
+			LoadLastUser();
 		}
 
 		/// <summary>
@@ -35,9 +36,6 @@ namespace CalorieManager
 		/// </summary>
 		private void LoadUsers()
 		{
-			//comboBoxProfiles.Items.Add(new User("test", 12, 12, 12, 44,
-			//	new Dictionary<DateTime, double>() {{new DateTime(2020, 12, 08), 90}}));
-
             Database db = new Database();
             List<User> usersList = db.UsersDataCollection();
 
@@ -45,8 +43,14 @@ namespace CalorieManager
 			{
 				comboBoxProfiles.Items.Add(user);
 			}
+        }
 
-		}
+        private void LoadLastUser()
+        {
+			Database db = new Database();
+            List<User> usersList = db.UsersDataCollection();
+            comboBoxProfiles.Items.Add(usersList.Last());
+        }
 
 		/// <summary>
 		/// Event when clicked on button "Select"

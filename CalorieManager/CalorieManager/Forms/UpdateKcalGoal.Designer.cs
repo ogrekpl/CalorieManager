@@ -58,6 +58,11 @@ namespace CalorieManager.Forms
             // newKcalGoal
             // 
             this.newKcalGoal.Location = new System.Drawing.Point(57, 90);
+            this.newKcalGoal.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
             this.newKcalGoal.Name = "newKcalGoal";
             this.newKcalGoal.Size = new System.Drawing.Size(120, 20);
             this.newKcalGoal.TabIndex = 3;

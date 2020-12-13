@@ -128,6 +128,11 @@
             // inputCalories
             // 
             this.inputCalories.Location = new System.Drawing.Point(316, 166);
+            this.inputCalories.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
             this.inputCalories.Name = "inputCalories";
             this.inputCalories.Size = new System.Drawing.Size(120, 20);
             this.inputCalories.TabIndex = 9;
@@ -142,6 +147,11 @@
             // inputProteins
             // 
             this.inputProteins.Location = new System.Drawing.Point(316, 217);
+            this.inputProteins.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             this.inputProteins.Name = "inputProteins";
             this.inputProteins.Size = new System.Drawing.Size(120, 20);
             this.inputProteins.TabIndex = 11;
@@ -149,6 +159,11 @@
             // inputCarbohydrates
             // 
             this.inputCarbohydrates.Location = new System.Drawing.Point(316, 263);
+            this.inputCarbohydrates.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             this.inputCarbohydrates.Name = "inputCarbohydrates";
             this.inputCarbohydrates.Size = new System.Drawing.Size(120, 20);
             this.inputCarbohydrates.TabIndex = 12;
@@ -156,6 +171,11 @@
             // inputFats
             // 
             this.inputFats.Location = new System.Drawing.Point(316, 307);
+            this.inputFats.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             this.inputFats.Name = "inputFats";
             this.inputFats.Size = new System.Drawing.Size(120, 20);
             this.inputFats.TabIndex = 13;

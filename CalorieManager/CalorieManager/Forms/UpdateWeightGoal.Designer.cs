@@ -58,6 +58,11 @@ namespace CalorieManager.Forms
             // newWeightGoal
             // 
             this.newWeightGoal.Location = new System.Drawing.Point(63, 89);
+            this.newWeightGoal.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             this.newWeightGoal.Name = "newWeightGoal";
             this.newWeightGoal.Size = new System.Drawing.Size(120, 20);
             this.newWeightGoal.TabIndex = 6;

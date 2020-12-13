@@ -60,6 +60,11 @@
             // inputCalories
             // 
             this.inputCalories.Location = new System.Drawing.Point(329, 174);
+            this.inputCalories.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
             this.inputCalories.Name = "inputCalories";
             this.inputCalories.Size = new System.Drawing.Size(120, 20);
             this.inputCalories.TabIndex = 23;

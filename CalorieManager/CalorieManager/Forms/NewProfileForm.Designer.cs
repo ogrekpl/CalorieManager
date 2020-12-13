@@ -140,6 +140,11 @@
             // inputAge
             // 
             this.inputAge.Location = new System.Drawing.Point(256, 104);
+            this.inputAge.Maximum = new decimal(new int[] {
+            120,
+            0,
+            0,
+            0});
             this.inputAge.Name = "inputAge";
             this.inputAge.Size = new System.Drawing.Size(120, 20);
             this.inputAge.TabIndex = 11;
@@ -147,6 +152,11 @@
             // inputWeight
             // 
             this.inputWeight.Location = new System.Drawing.Point(256, 150);
+            this.inputWeight.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             this.inputWeight.Name = "inputWeight";
             this.inputWeight.Size = new System.Drawing.Size(120, 20);
             this.inputWeight.TabIndex = 12;
@@ -154,6 +164,11 @@
             // inputHeight
             // 
             this.inputHeight.Location = new System.Drawing.Point(256, 197);
+            this.inputHeight.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.inputHeight.Name = "inputHeight";
             this.inputHeight.Size = new System.Drawing.Size(120, 20);
             this.inputHeight.TabIndex = 13;
@@ -161,6 +176,11 @@
             // inputKcalGoal
             // 
             this.inputKcalGoal.Location = new System.Drawing.Point(256, 244);
+            this.inputKcalGoal.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
             this.inputKcalGoal.Name = "inputKcalGoal";
             this.inputKcalGoal.Size = new System.Drawing.Size(120, 20);
             this.inputKcalGoal.TabIndex = 14;
@@ -168,6 +188,11 @@
             // inputWeightGoal
             // 
             this.inputWeightGoal.Location = new System.Drawing.Point(256, 301);
+            this.inputWeightGoal.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             this.inputWeightGoal.Name = "inputWeightGoal";
             this.inputWeightGoal.Size = new System.Drawing.Size(120, 20);
             this.inputWeightGoal.TabIndex = 15;
