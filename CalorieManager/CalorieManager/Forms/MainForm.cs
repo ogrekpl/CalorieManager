@@ -14,12 +14,14 @@ namespace CalorieManager.Forms
 	public partial class MainForm : Form
     {
         private User user;
+        private Form activeForm;
 
 		public MainForm(User user)
         {
             this.user = user;
+            activeForm = null;
             InitializeComponent();
-            loginInfo.Text = "Jesteś zalogowany jako: " + user.Name;
+            showChildForm(new PanelsForm(user));
         }
 
         private void buttonAddActivity_Click(object sender, EventArgs e)
@@ -40,7 +42,6 @@ namespace CalorieManager.Forms
         /// <summary>
         /// Event when clicked on button "Change Calories Goal" in Strip Menu "Profile" -> "Edit Profile"
         /// </summary>
-
         private void changeCaloriesGoalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form updateKcalGoal = new UpdateKcalGoal(user);
@@ -50,7 +51,6 @@ namespace CalorieManager.Forms
         /// <summary>
         /// Event when clicked on button "Change Weight Goal" in Strip Menu "Profile" -> "Edit Profile"
         /// </summary>
-
         private void changeWeightGoalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form updateWeightGoal = new UpdateWeightGoal(user);
@@ -60,7 +60,6 @@ namespace CalorieManager.Forms
         /// <summary>
         /// Event when clicked on button "Logout" in Strip Menu "Profile"
         /// </summary>
-
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Wylogowano użytkownika " + user.Name);
@@ -72,7 +71,6 @@ namespace CalorieManager.Forms
         /// <summary>
         /// Event when clicked on button "New Meal" in Strip Menu "New"
         /// </summary>
-
         private void newMealToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form addMealForm = new AddMealForm();
@@ -82,7 +80,6 @@ namespace CalorieManager.Forms
         /// <summary>
         /// Event when clicked on button "New Activity" in Strip Menu "New"
         /// </summary>
-
         private void newActivityToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form addActivityForm = new AddActivityForm();
@@ -98,6 +95,22 @@ namespace CalorieManager.Forms
         {
             Form dailySummary = new DailySummary(DateTime.Today, user);
             dailySummary.ShowDialog();
+        }
+        private void showChildForm(Form childForm)
+        {
+	        if (activeForm != null)
+	        {
+		        activeForm.Close();
+	        }
+
+	        activeForm = childForm;
+	        childForm.TopLevel = false;
+	        childForm.FormBorderStyle = FormBorderStyle.None;
+	        childForm.Dock = DockStyle.Fill;
+	        panelChild.Controls.Add(childForm);
+	        panelChild.Tag = childForm;
+	        childForm.BringToFront();
+	        childForm.Show();
         }
     }
 }

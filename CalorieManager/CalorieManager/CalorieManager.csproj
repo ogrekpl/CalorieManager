@@ -89,7 +89,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Activity.cs" />
-    <Compile Include="Classes\DailyActivities.cs" />
+    <Compile Include="Classes\DailyActivitie.cs" />
+    <Compile Include="Controls\ActivityControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ActivityControl.Designer.cs">
+      <DependentUpon>ActivityControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MealControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MealControl.Designer.cs">
+      <DependentUpon>MealControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddActivityForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,13 +114,25 @@
     <Compile Include="Forms\AddMealForm.Designer.cs">
       <DependentUpon>AddMealForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\DailyMeals.cs" />
+    <Compile Include="Classes\DailyMeal.cs" />
     <Compile Include="Classes\Database.cs" />
     <Compile Include="Forms\DailySummary.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\DailySummary.Designer.cs">
       <DependentUpon>DailySummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewDailyMealForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewDailyMealForm.Designer.cs">
+      <DependentUpon>NewDailyMealForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PanelsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PanelsForm.Designer.cs">
+      <DependentUpon>PanelsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -135,6 +159,18 @@
     <Compile Include="Forms\NewProfileForm.Designer.cs">
       <DependentUpon>NewProfileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UpdateDailyActivitieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdateDailyActivitieForm.Designer.cs">
+      <DependentUpon>UpdateDailyActivitieForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UpdateDailyMealForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdateDailyMealForm.Designer.cs">
+      <DependentUpon>UpdateDailyMealForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UpdateKcalGoal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +192,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\User.cs" />
+    <EmbeddedResource Include="Controls\ActivityControl.resx">
+      <DependentUpon>ActivityControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MealControl.resx">
+      <DependentUpon>MealControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddActivityForm.resx">
       <DependentUpon>AddActivityForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +206,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DailySummary.resx">
       <DependentUpon>DailySummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewDailyMealForm.resx">
+      <DependentUpon>NewDailyMealForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PanelsForm.resx">
+      <DependentUpon>PanelsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -176,6 +224,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewProfileForm.resx">
       <DependentUpon>NewProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UpdateDailyActivitieForm.resx">
+      <DependentUpon>UpdateDailyActivitieForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UpdateDailyMealForm.resx">
+      <DependentUpon>UpdateDailyMealForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UpdateKcalGoal.resx">
       <DependentUpon>UpdateKcalGoal.cs</DependentUpon>
@@ -209,5 +263,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
