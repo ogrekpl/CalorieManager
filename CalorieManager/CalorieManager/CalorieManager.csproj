@@ -122,6 +122,12 @@
     <Compile Include="Forms\DailySummary.Designer.cs">
       <DependentUpon>DailySummary.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NewDailyActivityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewDailyActivityForm.Designer.cs">
+      <DependentUpon>NewDailyActivityForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\NewDailyMealForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DailySummary.resx">
       <DependentUpon>DailySummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewDailyActivityForm.resx">
+      <DependentUpon>NewDailyActivityForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewDailyMealForm.resx">
       <DependentUpon>NewDailyMealForm.cs</DependentUpon>

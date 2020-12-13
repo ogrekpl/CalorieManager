@@ -30,11 +30,17 @@ namespace CalorieManager.Forms
 			this.user = user;
 			InitializeComponent();
 			dateTimePicker1.Value = activeDate;
+			LoadDailyMeals();
+			LoadDailyActivities();
+			RefreshPanels();
 		}
 
 		private void buttonAddActivity_Click(object sender, EventArgs e)
 		{
-			//Tworzymy daily acc oraz dodajemy do list w formie
+			NewDailyActivityForm form = new NewDailyActivityForm(user);
+			form.ShowDialog();
+			LoadDailyActivities();
+			RefreshPanels();
 		}
 
 		private void buttonAddMeal_Click(object sender, EventArgs e)
@@ -54,6 +60,12 @@ namespace CalorieManager.Forms
 		{
 			Database db = new Database();
 			dailyMeals = db.DailyMealsDataCollectionDate(user, activeDate);
+		}
+
+		private void LoadDailyActivities()
+		{
+			Database db = new Database();
+			dailyActivities = db.DailyActivitiesDataCollectionDate(user, activeDate);
 		}
 
 		private List<MealControl> LoadMealsControl(List<DailyMeal> dM)
@@ -83,7 +95,7 @@ namespace CalorieManager.Forms
 		private void AddToPanelActivitie(DailyActivitie activitie)
 		{
 			ActivityControl activeControl = new ActivityControl(activitie);
-			activeControl.Location = new Point(10, panel1.Controls.Count * (activeControl.Height + 30));
+			activeControl.Location = new Point(10, panel2.Controls.Count * (activeControl.Height + 30));
 			panel2.Controls.Add(activeControl);
 		}
 
@@ -107,8 +119,8 @@ namespace CalorieManager.Forms
 		{
 			foreach (var mC in mCL)
 			{
-				mC.Location = new Point(10, panel2.Controls.Count * (mC.Height + 30));
-				panel2.Controls.Add(mC);
+				mC.Location = new Point(10, panel1.Controls.Count * (mC.Height + 30));
+				panel1.Controls.Add(mC);
 			}
 		}
 

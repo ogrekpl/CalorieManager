@@ -224,7 +224,7 @@ namespace CalorieManager.Classes
             cmd.Parameters.Add("@DATE", SqlDbType.DateTime);
             cmd.Parameters.Add("@USERID", SqlDbType.Int);
 
-            cmd.Parameters["@ACTIVITY"].Value = dailyActivities.Activitie;
+            cmd.Parameters["@ACTIVITY"].Value = dailyActivities.Activitie.Id;
             cmd.Parameters["@DATE"].Value = dailyActivities.Date;
             cmd.Parameters["@USERID"].Value = user.Id;
 
@@ -444,7 +444,7 @@ namespace CalorieManager.Classes
             cmd.Parameters.Add("@DATE", SqlDbType.DateTime);
             cmd.Parameters.Add("@USERID", SqlDbType.Int);
 
-            cmd.Parameters["@MEAL"].Value = dailyMeals.Meal;
+            cmd.Parameters["@MEAL"].Value = dailyMeals.Meal.Id;
             cmd.Parameters["@DATE"].Value = dailyMeals.Date;
             cmd.Parameters["@USERID"].Value = user.Id;
 
