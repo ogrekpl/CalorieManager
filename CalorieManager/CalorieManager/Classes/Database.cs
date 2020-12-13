@@ -492,7 +492,7 @@ namespace CalorieManager.Classes
             connection.Open();
 
             string query =
-                "DELETE FROM DailyActivities WHERE Id = @USERID";
+                "DELETE FROM DailyMeals WHERE Id = @USERID";
             SqlCommand cmd = new SqlCommand(query, connection);
 
             cmd.Parameters.Add("@USERID", SqlDbType.Int);
