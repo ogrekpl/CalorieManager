@@ -16,6 +16,13 @@ namespace CalorieManager.Forms
     {
         private User user;
         private Form activeForm;
+        private DateTime date;
+
+        public DateTime Date
+        {
+            get => date;
+            set => date = value;
+        }
 
 		public MainForm(User user)
         {
@@ -23,6 +30,7 @@ namespace CalorieManager.Forms
             activeForm = null;
             InitializeComponent();
             showChildForm(new PanelsForm(user));
+            date = DateTime.Today;
         }
 
         private void buttonAddActivity_Click(object sender, EventArgs e)
@@ -92,10 +100,17 @@ namespace CalorieManager.Forms
 
         }
 
+        /// <summary>
+        /// Show Daily Summary
+        /// </summary>
         private void dailyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PanelsForm form = Application.OpenForms["Panelsform"] as PanelsForm;
-            showChildForm(new DailySummary(form.GetDate(), user));
+            if (form != null)
+            {
+                date = form.GetDate();
+            }
+            showChildForm(new DailySummary(date, user));
         }
         private void showChildForm(Form childForm)
         {
@@ -114,16 +129,32 @@ namespace CalorieManager.Forms
 	        childForm.Show();
         }
 
+        /// <summary>
+        /// Show Weekly Summary
+        /// </summary>
         private void weeklyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PanelsForm form = Application.OpenForms["Panelsform"] as PanelsForm;
-            showChildForm(new WeeklySummary(form.GetDate(), user));
+            if (form != null)
+            {
+                date = form.GetDate();
+            }
+            showChildForm(new WeeklySummary(date, user));
+            
         }
 
+        /// <summary>
+        /// Show Monthly Summary
+        /// </summary>
         private void monthlyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PanelsForm form = Application.OpenForms["Panelsform"] as PanelsForm;
-            showChildForm(new MonthlySummary(form.GetDate(), user));
+            if (form != null)
+            {
+                date = form.GetDate();
+            }
+            showChildForm(new MonthlySummary(date, user));
+            
         }
 
         private void manageCaloriesToolStripMenuItem_Click(object sender, EventArgs e)

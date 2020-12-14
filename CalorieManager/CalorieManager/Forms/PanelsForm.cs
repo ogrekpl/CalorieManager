@@ -21,7 +21,7 @@ namespace CalorieManager.Forms
 		private List<MealControl> mealControls;
 		private List<DailyActivitie> dailyActivities;
 		private List<DailyMeal> dailyMeals;
-		public PanelsForm(User user)
+        public PanelsForm(User user)
 		{
 			//get all acc date + user id
 			dailyActivities = new List<DailyActivitie>();
@@ -30,7 +30,7 @@ namespace CalorieManager.Forms
 			this.user = user;
 			InitializeComponent();
 			dateTimePicker1.Value = activeDate;
-			LoadDailyMeals();
+            LoadDailyMeals();
 			LoadDailyActivities();
 			RefreshPanels();
 		}
