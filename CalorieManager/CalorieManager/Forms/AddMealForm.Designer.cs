@@ -212,7 +212,6 @@
             this.Controls.Add(this.label1);
             this.Name = "AddMealForm";
             this.Text = "Add Meal";
-            this.Load += new System.EventHandler(this.AddMealForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.inputCalories)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputProteins)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputCarbohydrates)).EndInit();

@@ -21,9 +21,13 @@ namespace CalorieManager.Forms
 		private List<MealControl> mealControls;
 		private List<DailyActivitie> dailyActivities;
 		private List<DailyMeal> dailyMeals;
+
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="user">User</param>
 		public PanelsForm(User user)
 		{
-			//get all acc date + user id
 			dailyActivities = new List<DailyActivitie>();
 			dailyMeals = new List<DailyMeal>();
 			activeDate = DateTime.Now.Date;
@@ -35,6 +39,9 @@ namespace CalorieManager.Forms
 			RefreshPanels();
 		}
 
+		/// <summary>
+		/// On Add Activity Button clicked Method
+		/// </summary>
 		private void buttonAddActivity_Click(object sender, EventArgs e)
 		{
 			NewDailyActivityForm form = new NewDailyActivityForm(user);
@@ -43,6 +50,9 @@ namespace CalorieManager.Forms
 			RefreshPanels();
 		}
 
+		/// <summary>
+		/// On Add Meal Button clicked Method
+		/// </summary>
 		private void buttonAddMeal_Click(object sender, EventArgs e)
 		{
 			NewDailyMealForm form = new NewDailyMealForm(user);
@@ -51,23 +61,37 @@ namespace CalorieManager.Forms
 			RefreshPanels();
 		}
 
+		/// <summary>
+		/// On Date Time Picker value changed method
+		/// </summary>
 		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
 		{
 			activeDate = dateTimePicker1.Value;
 		}
 
+		/// <summary>
+		/// Method that loads all daily meals from data base with this user and seted date
+		/// </summary>
 		private void LoadDailyMeals()
 		{
 			Database db = new Database();
 			dailyMeals = db.DailyMealsDataCollectionDate(user, activeDate);
 		}
 
+		/// <summary>
+		///  Method that loads all daily activities from data base with this user and seted date
+		/// </summary>
 		private void LoadDailyActivities()
 		{
 			Database db = new Database();
 			dailyActivities = db.DailyActivitiesDataCollectionDate(user, activeDate);
 		}
 
+		/// <summary>
+		/// Method that Loads Meals Controls 
+		/// </summary>
+		/// <param name="dM">Daily Meals List</param>
+		/// <returns>Meals Control List</returns>
 		private List<MealControl> LoadMealsControl(List<DailyMeal> dM)
 		{
 			List<MealControl> temp = new List<MealControl>();
@@ -79,7 +103,11 @@ namespace CalorieManager.Forms
 
 			return  temp;
 		}
-
+		/// <summary>
+		/// Method that Loads Activities Controls 
+		/// </summary>
+		/// <param name="dA">Daily Activities List</param>
+		/// <returns>Activities Control List</returns>
 		private List<ActivityControl> LoadActivityControls(List<DailyActivitie> dA)
 		{
 			List<ActivityControl> temp = new List<ActivityControl>();
@@ -92,20 +120,10 @@ namespace CalorieManager.Forms
 			return  temp;
 		}
 
-		private void AddToPanelActivitie(DailyActivitie activitie)
-		{
-			ActivityControl activeControl = new ActivityControl(activitie, user);
-			activeControl.Location = new Point(10, panel2.Controls.Count * (activeControl.Height + 30));
-			panel2.Controls.Add(activeControl);
-		}
-
-		private void AddToPanelMeal(DailyMeal meal)
-		{
-			MealControl mealControl = new MealControl(meal, user);
-			mealControl.Location = new Point(10, panel1.Controls.Count * (mealControl.Height + 30));
-			panel1.Controls.Add(mealControl);
-		}
-
+		/// <summary>
+		/// Method that Loads Activities to Panel
+		/// </summary>
+		/// <param name="aCL">Activities Control List</param>
 		private void LoadToPanelActivities(List<ActivityControl> aCL)
 		{
 			foreach (var aC in aCL)
@@ -115,6 +133,10 @@ namespace CalorieManager.Forms
 			}
 		}
 
+		/// <summary>
+		/// Method that Loads MealsControls to Panel
+		/// </summary>
+		/// <param name="mCL">Meals Control List</param>
 		private void LoadToPanelMeals(List<MealControl> mCL)
 		{
 			foreach (var mC in mCL)
@@ -124,6 +146,9 @@ namespace CalorieManager.Forms
 			}
 		}
 
+		/// <summary>
+		/// Method that Refresh Panels
+		/// </summary>
 		public void RefreshPanels()
 		{
 			panel1.Controls.Clear();

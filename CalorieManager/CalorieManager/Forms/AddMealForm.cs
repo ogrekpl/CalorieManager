@@ -13,6 +13,9 @@ namespace CalorieManager.Forms
 {
 	public partial class AddMealForm : Form
 	{
+		/// <summary>
+		/// Constructor of AddMealForm class
+		/// </summary>
 		public AddMealForm()
 		{
 			InitializeComponent();
@@ -40,10 +43,5 @@ namespace CalorieManager.Forms
 				MessageBox.Show(message, caption);
 			}
 		}
-
-        private void AddMealForm_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
+	}
 }

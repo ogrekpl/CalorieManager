@@ -54,9 +54,5 @@ namespace CalorieManager
 				new Dictionary<DateTime, double>(){{DateTime.Now, Convert.ToDouble(inputWeight.Value)}});
 		}
 
-        private void NewProfileForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

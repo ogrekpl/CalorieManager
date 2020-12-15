@@ -36,17 +36,18 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(289, 78);
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label1.Location = new System.Drawing.Point(216, 109);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(35, 13);
+			this.label1.Size = new System.Drawing.Size(155, 31);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "label1";
+			this.label1.Text = "Select Meal";
 			// 
 			// comboBox1
 			// 
 			this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(208, 180);
+			this.comboBox1.Location = new System.Drawing.Point(197, 178);
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(194, 39);
 			this.comboBox1.TabIndex = 1;
@@ -54,7 +55,7 @@
 			// buttonOk
 			// 
 			this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.buttonOk.Location = new System.Drawing.Point(257, 270);
+			this.buttonOk.Location = new System.Drawing.Point(237, 251);
 			this.buttonOk.Name = "buttonOk";
 			this.buttonOk.Size = new System.Drawing.Size(98, 47);
 			this.buttonOk.TabIndex = 2;

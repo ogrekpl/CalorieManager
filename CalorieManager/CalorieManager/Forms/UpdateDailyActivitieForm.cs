@@ -16,6 +16,12 @@ namespace CalorieManager.Forms
 	{
 		private DailyActivitie dailyActivitie;
 		private User user;
+
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="dailyActivitie">Daily Activitie</param>
+		/// <param name="user">User</param>
 		public UpdateDailyActivitieForm(DailyActivitie dailyActivitie, User user)
 		{
 			this.user = user;
@@ -24,6 +30,9 @@ namespace CalorieManager.Forms
 			LoadToComboBox();
 		}
 
+		/// <summary>
+		/// On button New clicked method
+		/// </summary>
 		private void buttonNew_Click(object sender, EventArgs e)
 		{
 			if (comboBox.SelectedItem == null)
@@ -45,6 +54,9 @@ namespace CalorieManager.Forms
 			}
 		}
 
+		/// <summary>
+		/// Load Activities to Combobox
+		/// </summary>
 		private void LoadToComboBox()
 		{
 			Database db = new Database();

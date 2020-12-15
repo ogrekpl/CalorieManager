@@ -34,6 +34,8 @@
 			this.buttonAddMeal = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// labelDate
@@ -79,24 +81,46 @@
 			// panel1
 			// 
 			this.panel1.AutoScroll = true;
-			this.panel1.Location = new System.Drawing.Point(280, 12);
+			this.panel1.Location = new System.Drawing.Point(280, 40);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(406, 605);
+			this.panel1.Size = new System.Drawing.Size(406, 577);
 			this.panel1.TabIndex = 11;
 			// 
 			// panel2
 			// 
 			this.panel2.AutoScroll = true;
-			this.panel2.Location = new System.Drawing.Point(709, 12);
+			this.panel2.Location = new System.Drawing.Point(709, 40);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(406, 605);
+			this.panel2.Size = new System.Drawing.Size(406, 577);
 			this.panel2.TabIndex = 12;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label1.Location = new System.Drawing.Point(426, 9);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(70, 25);
+			this.label1.TabIndex = 13;
+			this.label1.Text = "Meals";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label2.Location = new System.Drawing.Point(858, 9);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(98, 25);
+			this.label2.TabIndex = 14;
+			this.label2.Text = "Activities";
 			// 
 			// PanelsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1144, 624);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.label1);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.labelDate);
@@ -118,5 +142,7 @@
 		private System.Windows.Forms.Button buttonAddMeal;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label2;
 	}
 }

@@ -13,6 +13,9 @@ namespace CalorieManager.Forms
 {
 	public partial class AddActivityForm : Form
 	{
+		/// <summary>
+		/// Constructor of AddActivityForm class
+		/// </summary>
 		public AddActivityForm()
 		{
 			InitializeComponent();
@@ -36,12 +39,6 @@ namespace CalorieManager.Forms
 				const string caption = "Error";
 				MessageBox.Show(message, caption);
 			}
-
 		}
-
-        private void AddActivityForm_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
+	}
 }

@@ -17,6 +17,12 @@ namespace CalorieManager.Controls
 		private DailyActivitie dailyActivitie;
 		public DailyActivitie DailyActivitie => dailyActivitie;
 		private User user;
+
+		/// <summary>
+		/// Constructor of Daily Activitiy class
+		/// </summary>
+		/// <param name="dailyActivitie">Daily Activity</param>
+		/// <param name="user">User</param>
 		public ActivityControl(DailyActivitie dailyActivitie, User user)
 		{
 			this.user = user;
@@ -25,6 +31,9 @@ namespace CalorieManager.Controls
 			UpdateLabels(null, EventArgs.Empty);
 		}
 
+		/// <summary>
+		/// On Button Edit Click event
+		/// </summary>
 		private void buttonEdit_Click(object sender, EventArgs e)
 		{
 			Form editDailyActivitie = new UpdateDailyActivitieForm(dailyActivitie, user);
@@ -32,6 +41,9 @@ namespace CalorieManager.Controls
 			editDailyActivitie.Closed += UpdateLabels;
 		}
 
+		/// <summary>
+		///  On Button Delete Click event
+		/// </summary>
 		private void button2_Click(object sender, EventArgs e)
 		{
 			Database db = new Database();
@@ -41,6 +53,9 @@ namespace CalorieManager.Controls
 			MessageBox.Show("Success");
 		}
 
+		/// <summary>
+		/// Method that update labels 
+		/// </summary>
 		private void UpdateLabels(object sender, EventArgs e)
 		{
 			labelName.Text = dailyActivitie.Activitie.Name;

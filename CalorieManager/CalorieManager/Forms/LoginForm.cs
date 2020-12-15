@@ -14,6 +14,9 @@ namespace CalorieManager
 {
 	public partial class LoginForm : Form
 	{
+		/// <summary>
+		/// Constructor of Login Form Class
+		/// </summary>
 		public LoginForm()
 		{
 			InitializeComponent();
@@ -45,6 +48,9 @@ namespace CalorieManager
 			}
         }
 
+		/// <summary>
+		/// Method that loads last user
+		/// </summary>
         private void LoadLastUser()
         {
 			Database db = new Database();
@@ -80,10 +86,5 @@ namespace CalorieManager
 		{
 			LoadUsers();
         }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
+	}
 }

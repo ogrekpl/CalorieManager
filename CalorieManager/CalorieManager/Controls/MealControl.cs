@@ -18,6 +18,11 @@ namespace CalorieManager.Controls
 		public DailyMeal DailyMeal => dailyMeal;
 		private User user;
 
+		/// <summary>
+		/// Constructor of Meal Control class
+		/// </summary>
+		/// <param name="dailyMeal">Daily Meal</param>
+		/// <param name="user">User</param>
 		public MealControl(DailyMeal dailyMeal, User user)
 		{
 			this.dailyMeal = dailyMeal;
@@ -26,6 +31,9 @@ namespace CalorieManager.Controls
 			UpdateLabels(null, EventArgs.Empty);
 		}
 
+		/// <summary>
+		/// On Button Edit Click event
+		/// </summary>
 		private void buttonEdit_Click(object sender, EventArgs e)
 		{
 			Form updateDailyMeal = new UpdateDailyMealForm(dailyMeal, user);
@@ -33,6 +41,9 @@ namespace CalorieManager.Controls
 			updateDailyMeal.Closed += UpdateLabels;
 		}
 
+		/// <summary>
+		///  On Button Delete Click event
+		/// </summary>
 		private void button2_Click(object sender, EventArgs e)
 		{
 			Database db = new Database();
@@ -42,6 +53,9 @@ namespace CalorieManager.Controls
 			MessageBox.Show("Success");
 		}
 
+		/// <summary>
+		/// Method that update labels 
+		/// </summary>
 		private void UpdateLabels(object sender, EventArgs e)
 		{
 			labelName.Text = dailyMeal.Meal.Name;

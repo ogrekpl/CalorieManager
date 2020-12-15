@@ -17,27 +17,16 @@ namespace CalorieManager.Forms
         private User user;
         private Form activeForm;
 
+        /// <summary>
+        /// Constructor of MainForm class
+        /// </summary>
+        /// <param name="user">User</param>
 		public MainForm(User user)
         {
             this.user = user;
             activeForm = null;
             InitializeComponent();
             showChildForm(new PanelsForm(user));
-        }
-
-        private void buttonAddActivity_Click(object sender, EventArgs e)
-        {
-
-		}
-
-        private void buttonAddMeal_Click(object sender, EventArgs e)
-        {
-
-		}
-
-        private void profileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         /// <summary>
@@ -87,16 +76,16 @@ namespace CalorieManager.Forms
             addActivityForm.ShowDialog();
         }
 
-        private void panelMain_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void dailyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form dailySummary = new DailySummary(DateTime.Today, user);
             dailySummary.ShowDialog();
         }
+
+        /// <summary>
+        /// Method that display Form in Panel
+        /// </summary>
+        /// <param name="childForm">Form that will be shown</param>
         private void showChildForm(Form childForm)
         {
 	        if (activeForm != null)

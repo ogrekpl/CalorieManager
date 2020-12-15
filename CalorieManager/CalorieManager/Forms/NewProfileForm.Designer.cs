@@ -218,7 +218,6 @@
             this.Controls.Add(this.labelName);
             this.Name = "NewProfileForm";
             this.Text = "Create Profile";
-            this.Load += new System.EventHandler(this.NewProfileForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.inputAge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputHeight)).EndInit();
