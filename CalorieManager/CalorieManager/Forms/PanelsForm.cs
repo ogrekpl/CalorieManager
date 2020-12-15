@@ -44,7 +44,7 @@ namespace CalorieManager.Forms
 		/// </summary>
 		private void buttonAddActivity_Click(object sender, EventArgs e)
 		{
-			NewDailyActivityForm form = new NewDailyActivityForm(user);
+			NewDailyActivityForm form = new NewDailyActivityForm(user, activeDate);
 			form.ShowDialog();
 			LoadDailyActivities();
 			RefreshPanels();
@@ -55,7 +55,7 @@ namespace CalorieManager.Forms
 		/// </summary>
 		private void buttonAddMeal_Click(object sender, EventArgs e)
 		{
-			NewDailyMealForm form = new NewDailyMealForm(user);
+			NewDailyMealForm form = new NewDailyMealForm(user, activeDate);
 			form.ShowDialog();
 			LoadDailyMeals();
 			RefreshPanels();
@@ -67,6 +67,9 @@ namespace CalorieManager.Forms
 		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
 		{
 			activeDate = dateTimePicker1.Value;
+			activitiyControls = new List<ActivityControl>();
+			mealControls = new List<MealControl>();
+			RefreshPanels();
 		}
 
 		/// <summary>
@@ -103,6 +106,7 @@ namespace CalorieManager.Forms
 
 			return  temp;
 		}
+
 		/// <summary>
 		/// Method that Loads Activities Controls 
 		/// </summary>
