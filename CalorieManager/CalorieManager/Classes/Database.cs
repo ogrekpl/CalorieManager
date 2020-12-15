@@ -85,7 +85,6 @@ namespace CalorieManager.Classes
         /// Add new User to Database
         /// </summary>
         /// <param name="user">User</param>
-
         public void UserDataAdd(User user)
         {
             connection.Open();
@@ -137,7 +136,6 @@ namespace CalorieManager.Classes
         /// Update of User data in Database
         /// </summary>
         /// <param name="user">User</param>
-
         public void UserDataUpdate(User user)
         {
             connection.Open();
@@ -162,7 +160,6 @@ namespace CalorieManager.Classes
         /// Add new Activity to Database
         /// </summary>
         /// <param name="activity">Activity</param>
-
         public void ActivityDataAdd(Activity activity)
         {
             connection.Open();
@@ -187,7 +184,6 @@ namespace CalorieManager.Classes
         /// Collect list of all Activites from Database
         /// </summary>
         /// <returns></returns>
-
         public List<Activity> ActivityDataCollection()
         {
             List<Activity> activities = new List<Activity>();
@@ -212,7 +208,6 @@ namespace CalorieManager.Classes
         /// </summary>
         /// <param name="dailyActivities">Daily Activities</param>
         /// <param name="user"User>User</param>
-
         public void DailyActivitiesDataAdd(DailyActivitie dailyActivities, User user)
         {
             connection.Open();
@@ -459,7 +454,6 @@ namespace CalorieManager.Classes
         /// <param name="meal">Meal</param>
         /// <param name="dailyMeals">Daily Meals</param>
         /// <param name="user">User</param>
-
         public void DailyMealsDataUpdate(Meal meal, DailyMeal dailyMeals, User user)
         {
             connection.Open();
